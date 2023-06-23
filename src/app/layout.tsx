@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 import 'normalize.css/normalize.css';
 import './global.css';
 import { css } from '@linaria/core';
+import Navbar from '@/components/Navbar';
 
 export const metadata = {
 	title: 'Estate Explorer',
@@ -16,7 +17,10 @@ const body = css`
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html lang="en" className={inter.className}>
-			<body className={body}>{children}</body>
+			<body className={body}>
+				<Navbar />
+				{children}
+			</body>
 		</html>
 	);
 };

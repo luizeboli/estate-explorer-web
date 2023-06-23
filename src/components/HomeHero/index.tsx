@@ -1,5 +1,3 @@
-import Link from 'next/link';
-import { HomeIcon } from 'lucide-react';
 import Image from 'next/image';
 
 import HeroImg from '@/assets/hero-header.png';
@@ -38,18 +36,6 @@ const Overlay = styled.div`
 		right: 0;
 		bottom: 0;
 		background-color: rgba(0, 0, 0, 0.5);
-	}
-`;
-
-const Header = styled.div`
-	padding: 1.2rem 1.6rem;
-	font-size: 1.2rem;
-	text-transform: uppercase;
-
-	& a {
-		display: flex;
-		gap: 0.8rem;
-		align-items: center;
 	}
 `;
 
@@ -101,12 +87,6 @@ const HomeHero = () => {
 			<Overlay aria-hidden="true">
 				<Image src={HeroImg} placeholder="blur" fill alt="Hidden background" priority />
 			</Overlay>
-			<Header>
-				<Link href="/">
-					<HomeIcon size={20} strokeWidth={1.5} />
-					Estate Explorer
-				</Link>
-			</Header>
 
 			<Content>
 				<Title>Buy, Rent or Sell, Easily.</Title>
