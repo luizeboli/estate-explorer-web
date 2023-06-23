@@ -7,14 +7,14 @@ export const createInitialFilters = (
 ) => {
 	return terms.reduce((acc, { taxonomy, slug }) => {
 		const query = searchParams?.[taxonomy];
-		if (!acc[taxonomy]) acc[taxonomy] = {};
+		const termFilterValue = Array.isArray(query) ? query.includes(slug) : query === slug;
 
-		if (Array.isArray(query)) {
-			acc[taxonomy][slug] = query.includes(slug);
-		} else {
-			acc[taxonomy][slug] = query === slug;
-		}
-
-		return acc;
+		return {
+			...acc,
+			[taxonomy]: {
+				...acc[taxonomy],
+				[slug]: termFilterValue,
+			},
+		};
 	}, {} as FilterState);
 };
