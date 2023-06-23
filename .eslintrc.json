@@ -1,0 +1,8 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "next/core-web-vitals",
+    "@10up/eslint-config/react"
+  ],
+  "plugins": ["@typescript-eslint"]
+}
