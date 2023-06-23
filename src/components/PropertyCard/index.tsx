@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 	background-color: #fff;
 `;
 
-const ImageWrapper = css`
+const imageWrapper = css`
 	display: flex;
 	position: relative;
 `;
@@ -97,7 +97,7 @@ type PropertyCardProps = {
 const PropertyCard = ({ property }: PropertyCardProps) => {
 	return (
 		<Wrapper>
-			<Link href={`/property/${property.id}`} className={ImageWrapper}>
+			<Link href={`/property/${property.id}`} className={imageWrapper}>
 				<Image
 					src={property.cover}
 					alt={property.title}
