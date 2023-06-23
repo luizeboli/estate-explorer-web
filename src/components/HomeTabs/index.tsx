@@ -25,7 +25,7 @@ const ContentButtons = styled.div`
 
 	gap: 1.2rem;
 
-	background: rgb(245 245 245);
+	background-color: rgb(245 245 245);
 
 	& button {
 		width: inherit;
@@ -36,7 +36,7 @@ const ContentButtons = styled.div`
 
 	& button[aria-selected='true'] {
 		border: 1px solid #d4d4d8;
-		background: #fff;
+		background-color: #fff;
 		color: rgb(168 85 247);
 		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 	}
