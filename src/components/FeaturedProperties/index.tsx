@@ -5,11 +5,21 @@ import { styled } from '@linaria/react';
 const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
+
+	@media screen and (min-width: 425px) {
+		max-width: 32rem;
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	@media screen and (min-width: 768px) {
+		max-width: 1440px;
+	}
 `;
 
 const Title = styled.h2`
 	position: relative;
-	font-size: 2.4rem;
+	font-size: 3.2rem;
 	margin-bottom: 1.6rem;
 
 	&::before {

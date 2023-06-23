@@ -74,9 +74,13 @@ const ContentWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
-	padding: 8rem;
+	padding: 5.4rem 1.2rem;
 	gap: 5.4rem;
 	padding-bottom: 3.2rem;
+
+	@media screen and (min-width: 768px) {
+		padding: 5.4rem 3.2rem;
+	}
 `;
 
 const HomePage = () => {

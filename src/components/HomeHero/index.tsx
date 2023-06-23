@@ -60,6 +60,7 @@ const Content = styled.div`
 	margin: -4.4rem auto 0;
 	height: 100%;
 	max-width: max-content;
+	padding: 0 1.2rem;
 `;
 
 const Title = styled.h1`

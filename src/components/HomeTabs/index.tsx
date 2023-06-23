@@ -7,23 +7,28 @@ import { styled } from '@linaria/react';
 const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	max-width: 32rem;
+
+	@media screen and (min-width: 425px) {
+		max-width: 32rem;
+	}
 `;
 
 const ContentButtons = styled.div`
+	display: flex;
+	justify-content: center;
+	width: 100%;
+
 	border: 1px solid #d4d4d8;
 	border-radius: 0.4rem;
 	padding: 0.8rem;
-	width: max-content;
-
-	display: flex;
-	gap: 1.2rem;
-
 	margin-bottom: 3.2rem;
+
+	gap: 1.2rem;
 
 	background: rgb(245 245 245);
 
 	& button {
+		width: inherit;
 		padding: 0.8rem 1.6rem;
 		border-radius: 0.4rem;
 		color: rgb(115 115 115);
@@ -57,6 +62,7 @@ const SeeMore = styled.button`
 	border-radius: 0.6rem;
 	font-size: 1.4rem;
 	font-weight: 500;
+	width: 100%;
 
 	&:hover {
 		background-color: rgb(126 34 206);

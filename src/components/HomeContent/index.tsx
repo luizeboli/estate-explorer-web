@@ -6,23 +6,31 @@ import { styled } from '@linaria/react';
 
 const Wrapper = styled.section`
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	position: relative;
 	gap: 3.2rem;
 `;
 
 const PanelImageWrapper = styled.div`
 	position: relative;
-	max-width: 30rem;
 
 	& img {
 		border-radius: 0.8rem;
+	}
+
+	@media screen and (min-width: 425px) {
+		max-width: 30rem;
 	}
 `;
 
 const PanelImageTip = styled.div`
 	position: absolute;
 	top: -1.6rem;
-	left: -3.2rem;
+	width: 100%;
+	max-width: max-content;
+	left: 50%;
+	transform: translateX(-50%);
 	z-index: 1;
 
 	border-radius: 0.8rem;
@@ -49,6 +57,11 @@ const PanelImageTip = styled.div`
 	& span {
 		font-size: 1rem;
 		margin-bottom: 0.4rem;
+	}
+
+	@media screen and (min-width: 425px) {
+		left: -3.2rem;
+		transform: translateX(0);
 	}
 `;
 
