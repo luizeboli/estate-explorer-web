@@ -17,3 +17,10 @@ export type PropertyAmenity = {
 	slug: string;
 	name: string;
 };
+
+export type TaxonomyTerm = {
+	id: number;
+	name: string;
+	slug: string;
+	taxonomy: string;
+};
