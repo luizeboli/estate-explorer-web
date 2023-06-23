@@ -1,4 +1,7 @@
+import { TaxonomyTitle } from '@/types';
+
 export type FilterState = {
-	property_status: { [key: string]: boolean };
-	amenities: { [key: string]: boolean };
+	[Title in TaxonomyTitle]: {
+		[slug: string]: boolean;
+	};
 };

@@ -18,9 +18,11 @@ export type PropertyAmenity = {
 	name: string;
 };
 
+export type TaxonomyTitle = 'property_status' | 'amenities';
+
 export type TaxonomyTerm = {
 	id: number;
 	name: string;
 	slug: string;
-	taxonomy: string;
+	taxonomy: TaxonomyTitle;
 };

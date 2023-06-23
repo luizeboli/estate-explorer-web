@@ -4,7 +4,6 @@ import { TaxonomyTerm } from '@/types';
 import { styled } from '@linaria/react';
 import { useState } from 'react';
 import { FilterState } from '@/components/Filters/types';
-import { createInitialState } from './helpers';
 import TaxonomyFilter from './TaxonomyFilter';
 
 const Wrapper = styled.ul`
@@ -19,12 +18,11 @@ const Wrapper = styled.ul`
 type FiltersProps = {
 	amenities: TaxonomyTerm[];
 	propertyStatus: TaxonomyTerm[];
+	initialFilters: FilterState;
 };
 
-const Filters = ({ amenities, propertyStatus }: FiltersProps) => {
-	const [filters, setFilters] = useState(() =>
-		createInitialState([...amenities, ...propertyStatus]),
-	);
+const Filters = ({ amenities, propertyStatus, initialFilters }: FiltersProps) => {
+	const [filters, setFilters] = useState(initialFilters);
 
 	const updateFilters = (taxonomy: keyof FilterState) => (slug: string, value: boolean) => {
 		setFilters((prev) => ({
