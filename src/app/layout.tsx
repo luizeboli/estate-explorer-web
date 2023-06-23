@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google';
 import 'normalize.css/normalize.css';
-import '@/styles/global.css';
+import './global.css';
 
 export const metadata = {
 	title: 'Estate Explorer',
