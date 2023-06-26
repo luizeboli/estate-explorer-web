@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 
 export const metadata = {
 	title: 'Estate Explorer',
+	description: 'The best place to find your new home',
 };
 
 const inter = Inter({ subsets: ['latin'] });
