@@ -11,6 +11,8 @@ export const metadata = {
 const inter = Inter({ subsets: ['latin'] });
 
 const body = css`
+	display: flex;
+	flex-direction: column;
 	background-color: rgb(250 250 250);
 `;
 

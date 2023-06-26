@@ -65,8 +65,7 @@ const properties: Property[] = [
 ];
 
 const Container = styled.div`
-	height: 100vh;
-	overflow-y: scroll;
+	overflow-y: auto;
 	overflow-x: hidden;
 `;
 
