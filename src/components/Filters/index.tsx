@@ -4,8 +4,9 @@ import { TaxonomyTerm } from '@/types';
 import { styled } from '@linaria/react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { FilterState } from '@/components/Filters/types';
+import { FilterState } from './types';
 import TaxonomyFilter from './TaxonomyFilter';
+import { buildSearchQueryString } from './helpers';
 
 const Wrapper = styled.div``;
 
@@ -50,15 +51,8 @@ const Filters = ({ amenities, propertyStatus, initialFilters }: FiltersProps) =>
 	};
 
 	const handleSearch = () => {
-		const query = new URLSearchParams();
-		Object.entries(filters).forEach(([taxonomy, terms]) => {
-			Object.entries(terms).forEach(([slug, value]) => {
-				if (value) {
-					query.append(taxonomy, slug);
-				}
-			});
-		});
-		router.push(`${pathname}?${query.toString()}`);
+		const query = buildSearchQueryString(filters);
+		router.push(`${pathname}?${decodeURIComponent(query.toString())}`);
 	};
 
 	return (
@@ -67,13 +61,13 @@ const Filters = ({ amenities, propertyStatus, initialFilters }: FiltersProps) =>
 				<TaxonomyFilter
 					title="Status"
 					terms={propertyStatus}
-					values={filters?.property_status}
+					values={filters.property_status}
 					onChange={updateFilters('property_status')}
 				/>
 				<TaxonomyFilter
 					title="Amenities"
 					terms={amenities}
-					values={filters?.amenities}
+					values={filters.amenities}
 					onChange={updateFilters('amenities')}
 				/>
 			</Container>
