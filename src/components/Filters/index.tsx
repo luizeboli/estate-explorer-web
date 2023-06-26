@@ -2,17 +2,36 @@
 
 import { TaxonomyTerm } from '@/types';
 import { styled } from '@linaria/react';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FilterState } from '@/components/Filters/types';
 import TaxonomyFilter from './TaxonomyFilter';
 
-const Wrapper = styled.ul`
+const Wrapper = styled.div``;
+
+const Container = styled.ul`
 	display: flex;
 	justify-content: space-between;
 	background-color: #fff;
 	border: 1px solid #d4d4d8;
 	border-radius: 0.6rem;
 	padding: 0.8rem 1.4rem;
+	margin-bottom: 1.2rem;
+`;
+
+const Search = styled.button`
+	align-self: flex-start;
+	color: #fff;
+	padding: 0.8rem 1.2rem;
+	background-color: rgb(168 85 247);
+	border-radius: 0.6rem;
+	font-size: 1.4rem;
+	font-weight: 500;
+	width: 100%;
+
+	&:hover {
+		background-color: rgb(126 34 206);
+	}
 `;
 
 type FiltersProps = {
@@ -22,29 +41,46 @@ type FiltersProps = {
 };
 
 const Filters = ({ amenities, propertyStatus, initialFilters }: FiltersProps) => {
+	const pathname = usePathname();
+	const router = useRouter();
 	const [filters, setFilters] = useState(initialFilters);
 
 	const updateFilters = (taxonomy: keyof FilterState) => (slug: string, value: boolean) => {
-		setFilters((prev) => ({
-			...prev,
-			[taxonomy]: { ...prev[taxonomy], [slug]: value },
-		}));
+		setFilters((prev) => ({ ...prev, [taxonomy]: { ...prev[taxonomy], [slug]: value } }));
+	};
+
+	const handleSearch = () => {
+		const query = new URLSearchParams();
+		Object.entries(filters).forEach(([taxonomy, terms]) => {
+			Object.entries(terms).forEach(([slug, value]) => {
+				if (value) {
+					query.append(taxonomy, slug);
+				}
+			});
+		});
+		router.push(`${pathname}?${query.toString()}`);
 	};
 
 	return (
 		<Wrapper>
-			<TaxonomyFilter
-				title="Status"
-				terms={propertyStatus}
-				values={filters.property_status}
-				onChange={updateFilters('property_status')}
-			/>
-			<TaxonomyFilter
-				title="Amenities"
-				terms={amenities}
-				values={filters.amenities}
-				onChange={updateFilters('amenities')}
-			/>
+			<Container>
+				<TaxonomyFilter
+					title="Status"
+					terms={propertyStatus}
+					values={filters?.property_status}
+					onChange={updateFilters('property_status')}
+				/>
+				<TaxonomyFilter
+					title="Amenities"
+					terms={amenities}
+					values={filters?.amenities}
+					onChange={updateFilters('amenities')}
+				/>
+			</Container>
+
+			<Search type="button" onClick={handleSearch}>
+				Search
+			</Search>
 		</Wrapper>
 	);
 };
