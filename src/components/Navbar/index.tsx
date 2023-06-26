@@ -6,20 +6,24 @@ import { HomeIcon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const Container = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1.2rem 1.6rem;
-	margin: 0 auto;
-	font-size: 1.2rem;
-	max-width: 1440px;
+const Wrapper = styled.div`
 	background-color: #fff;
 	border-bottom: 1px solid #d4d4d8;
 
 	filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
 	position: sticky;
 	top: 0;
+`;
+
+const Container = styled.div`
+	width: 100%;
+	max-width: 1440px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.2rem 1.6rem;
+	margin: 0 auto;
+	font-size: 1.2rem;
 `;
 
 const menuItem = css`
@@ -55,15 +59,20 @@ const Navbar = () => {
 	const pathname = usePathname();
 
 	return (
-		<Container>
-			<Link href="/" aria-label="Go to home">
-				<HomeIcon size={20} strokeWidth={2} />
-			</Link>
+		<Wrapper>
+			<Container>
+				<Link href="/" aria-label="Go to home">
+					<HomeIcon size={20} strokeWidth={2} />
+				</Link>
 
-			<Link href="/search" className={cx(menuItem, pathname === '/search' ? activeLink : '')}>
-				Search Properties
-			</Link>
-		</Container>
+				<Link
+					href="/search"
+					className={cx(menuItem, pathname === '/search' ? activeLink : '')}
+				>
+					Search Properties
+				</Link>
+			</Container>
+		</Wrapper>
 	);
 };
 
