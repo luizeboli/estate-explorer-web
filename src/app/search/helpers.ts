@@ -50,7 +50,7 @@ const normalizeTaxonomies = (taxonomies: Taxonomy[]) => {
 			...acc,
 			[taxonomy]: taxonomyTerms,
 		};
-	}, {} as { [key in TaxonomyTitle]: TaxonomyTerm | TaxonomyTerm[] });
+	}, {} as { [key in TaxonomyTitle]: key extends 'property_status' ? TaxonomyTerm : TaxonomyTerm[] });
 };
 
 export const normalizeWordpressProperties = (properties: WordpressPropertyPostType[]) =>
