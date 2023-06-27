@@ -14,8 +14,8 @@ const Wrapper = styled.div`
 	gap: 1.2rem;
 	margin-bottom: 1.2rem;
 
-	@media screen and (min-width: 768px) {
-		flex-direction: row;
+	@media screen and (min-width: 1024px) {
+		margin-bottom: 0;
 	}
 `;
 
@@ -27,27 +27,9 @@ const Container = styled.ul`
 	padding: 0.8rem 1.4rem;
 	flex-grow: 1;
 
-	@media screen and (min-width: 768px) {
-		flex-grow: 0;
-	}
-`;
-
-const Search = styled.button`
-	color: #fff;
-	padding: 0.8rem 1.2rem;
-	background-color: rgb(168 85 247);
-	border-radius: 0.6rem;
-	font-size: 1.4rem;
-	width: 100%;
-	font-weight: 500;
-
-	&:hover {
-		background-color: rgb(126 34 206);
-	}
-
-	@media screen and (min-width: 768px) {
-		width: auto;
-		align-self: center;
+	@media screen and (min-width: 1024px) {
+		gap: 2.4rem;
+		flex-direction: column;
 	}
 `;
 
@@ -63,11 +45,10 @@ const Filters = ({ amenities, propertyStatus, initialFilters }: FiltersProps) =>
 	const [filters, setFilters] = useState(initialFilters);
 
 	const updateFilters = (taxonomy: keyof FilterState) => (slug: string, value: boolean) => {
-		setFilters((prev) => ({ ...prev, [taxonomy]: { ...prev[taxonomy], [slug]: value } }));
-	};
+		const newFilters = { ...filters, [taxonomy]: { ...filters[taxonomy], [slug]: value } };
+		setFilters(newFilters);
 
-	const handleSearch = () => {
-		const query = buildSearchQueryString(filters);
+		const query = buildSearchQueryString(newFilters);
 		router.push(`${pathname}?${decodeURIComponent(query.toString())}`);
 	};
 
@@ -87,10 +68,6 @@ const Filters = ({ amenities, propertyStatus, initialFilters }: FiltersProps) =>
 					onChange={updateFilters('amenities')}
 				/>
 			</Container>
-
-			<Search type="button" onClick={handleSearch}>
-				Search
-			</Search>
 		</Wrapper>
 	);
 };

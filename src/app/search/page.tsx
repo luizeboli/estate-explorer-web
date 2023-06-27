@@ -10,7 +10,7 @@ import {
 } from './helpers';
 
 const Wrapper = styled.div`
-	padding: 5.4rem 1.6rem 0;
+	padding: 5.4rem 5% 0;
 `;
 
 const Container = styled.div`
@@ -20,19 +20,14 @@ const Container = styled.div`
 
 const Title = styled.h1`
 	font-size: 2.4rem;
-	text-align: center;
 	margin-bottom: 3.2rem;
-
-	@media screen and (min-width: 768px) {
-		text-align: left;
-	}
 `;
 
 const List = styled.ul`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	gap: 1.6rem;
-	margin-top: 3.2rem;
+	flex-grow: 1;
 `;
 
 const EmptyStateText = styled.p`
@@ -41,6 +36,16 @@ const EmptyStateText = styled.p`
 
 	@media screen and (min-width: 768px) {
 		text-align: left;
+	}
+`;
+
+const Properties = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 3.2rem;
+
+	@media screen and (min-width: 1024px) {
+		flex-direction: row;
 	}
 `;
 
@@ -61,24 +66,28 @@ const SearchPage = async ({ searchParams }: { searchParams?: NextSearchParams })
 			<Container>
 				<Title>Search your new home</Title>
 
-				<Filters
-					amenities={amenities}
-					propertyStatus={propertyStatus}
-					initialFilters={createInitialFilters(
-						[...amenities, ...propertyStatus],
-						searchParams,
-					)}
-				/>
+				<Properties>
+					<Filters
+						amenities={amenities}
+						propertyStatus={propertyStatus}
+						initialFilters={createInitialFilters(
+							[...amenities, ...propertyStatus],
+							searchParams,
+						)}
+					/>
 
-				{properties.length ? (
-					<List>
-						{properties.map((property) => (
-							<PropertyCard key={property.id} property={property} />
-						))}
-					</List>
-				) : (
-					<EmptyStateText>No properties found. Try changing your filters.</EmptyStateText>
-				)}
+					{properties.length ? (
+						<List>
+							{properties.map((property) => (
+								<PropertyCard key={property.id} property={property} />
+							))}
+						</List>
+					) : (
+						<EmptyStateText>
+							No properties found. Try changing your filters.
+						</EmptyStateText>
+					)}
+				</Properties>
 			</Container>
 		</Wrapper>
 	);

@@ -25,6 +25,7 @@ button {
 
 fieldset {
   border: none;
+  padding: 0;
 }
 
 * {
