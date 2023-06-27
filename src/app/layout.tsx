@@ -4,10 +4,12 @@ import './global.css';
 import { css } from '@linaria/core';
 import Navbar from '@/components/Navbar';
 import { styled } from '@linaria/react';
+import { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
 	title: 'Estate Explorer',
 	description: 'The best place to find your new home',
+	viewport: 'width=device-width, initial-scale=1',
 };
 
 const inter = Inter({ subsets: ['latin'] });
