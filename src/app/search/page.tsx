@@ -22,12 +22,26 @@ const Title = styled.h1`
 	font-size: 2.4rem;
 	text-align: center;
 	margin-bottom: 3.2rem;
+
+	@media screen and (min-width: 768px) {
+		text-align: left;
+	}
 `;
 
 const List = styled.ul`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	gap: 1.6rem;
+	margin-top: 3.2rem;
+`;
+
+const EmptyStateText = styled.p`
+	font-size: 1.6rem;
+	text-align: center;
+
+	@media screen and (min-width: 768px) {
+		text-align: left;
+	}
 `;
 
 const SearchPage = async ({ searchParams }: { searchParams?: NextSearchParams }) => {
@@ -56,11 +70,15 @@ const SearchPage = async ({ searchParams }: { searchParams?: NextSearchParams })
 					)}
 				/>
 
-				<List>
-					{properties.map((property) => (
-						<PropertyCard key={property.id} property={property} />
-					))}
-				</List>
+				{properties.length ? (
+					<List>
+						{properties.map((property) => (
+							<PropertyCard key={property.id} property={property} />
+						))}
+					</List>
+				) : (
+					<EmptyStateText>No properties found. Try changing your filters.</EmptyStateText>
+				)}
 			</Container>
 		</Wrapper>
 	);

@@ -8,30 +8,46 @@ import { FilterState } from './types';
 import TaxonomyFilter from './TaxonomyFilter';
 import { buildSearchQueryString } from './helpers';
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	margin-bottom: 1.2rem;
+
+	@media screen and (min-width: 768px) {
+		flex-direction: row;
+	}
+`;
 
 const Container = styled.ul`
 	display: flex;
-	justify-content: space-between;
 	background-color: #fff;
 	border: 1px solid #d4d4d8;
 	border-radius: 0.6rem;
 	padding: 0.8rem 1.4rem;
-	margin-bottom: 1.2rem;
+	flex-grow: 1;
+
+	@media screen and (min-width: 768px) {
+		flex-grow: 0;
+	}
 `;
 
 const Search = styled.button`
-	align-self: flex-start;
 	color: #fff;
 	padding: 0.8rem 1.2rem;
 	background-color: rgb(168 85 247);
 	border-radius: 0.6rem;
 	font-size: 1.4rem;
-	font-weight: 500;
 	width: 100%;
+	font-weight: 500;
 
 	&:hover {
 		background-color: rgb(126 34 206);
+	}
+
+	@media screen and (min-width: 768px) {
+		width: auto;
+		align-self: center;
 	}
 `;
 
