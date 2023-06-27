@@ -54,12 +54,13 @@ const normalizeTaxonomies = (taxonomies: Taxonomy[]) => {
 };
 
 export const normalizeWordpressProperties = (properties: WordpressPropertyPostType[]) =>
-	properties.map(({ _embedded, id, title, meta: { description, location, price } }) => {
+	properties.map(({ _embedded, id, slug, title, meta: { description, location, price } }) => {
 		const { property_status: status, ...taxonomies } = normalizeTaxonomies(
 			_embedded?.['wp:term'] ?? [],
 		);
 		return {
 			id,
+			slug,
 			cover: _embedded['wp:featuredmedia']?.[0].source_url ?? null,
 			title: title.rendered,
 			description,

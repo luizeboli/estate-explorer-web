@@ -98,7 +98,7 @@ type PropertyCardProps = {
 const PropertyCard = ({ property }: PropertyCardProps) => {
 	return (
 		<Wrapper>
-			<Link href={`/property/${property.id}`} className={imageWrapper}>
+			<Link href={`/property/${property.slug}`} className={imageWrapper}>
 				<Image
 					src={property.cover ?? HouseCoverPlaceholder}
 					alt={property.title}

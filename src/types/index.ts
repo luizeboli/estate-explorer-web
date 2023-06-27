@@ -14,6 +14,7 @@ export type WordpressPropertyPostType = {
 	title: {
 		rendered: string;
 	};
+	slug: string;
 	meta: {
 		description: string;
 		location: string;
@@ -29,6 +30,7 @@ export type WordpressPropertyPostType = {
 
 export type Property = {
 	id: number;
+	slug: string;
 	cover: string | null;
 	title: string;
 	location: string;
