@@ -1,11 +1,21 @@
 import Filters from '@/components/Filters';
-import { TaxonomyTerm } from '@/types';
+import { NextSearchParams, TaxonomyTerm, WordpressPropertyPostType } from '@/types';
 import { styled } from '@linaria/react';
-import { createInitialFilters } from './helpers';
+import { fetcher } from '@/services/api';
+import PropertyCard from '@/components/PropertyCard';
+import {
+	createInitialFilters,
+	createWordpressQuery,
+	normalizeWordpressProperties,
+} from './helpers';
+
+const Wrapper = styled.div`
+	padding: 5.4rem 1.6rem 0;
+`;
 
 const Container = styled.div`
-	margin-top: 5.4rem;
-	padding: 0 1.6rem;
+	max-width: 1440px;
+	margin: 0 auto;
 `;
 
 const Title = styled.h1`
@@ -14,31 +24,45 @@ const Title = styled.h1`
 	margin-bottom: 3.2rem;
 `;
 
-const getTaxonomyTerms = async (taxonomyName: string): Promise<TaxonomyTerm[]> =>
-	fetch(`${process.env.WP_HOST}/${taxonomyName}`).then((res) => res.json());
+const List = styled.ul`
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 1.6rem;
+`;
 
-const SearchPage = async ({
-	searchParams,
-}: {
-	searchParams?: { [key: string]: string | string[] | undefined };
-}) => {
-	const amenitiesTerms = getTaxonomyTerms('amenities');
-	const propertyStatusTerms = getTaxonomyTerms('property_status');
-	const [amenities, propertyStatus] = await Promise.all([amenitiesTerms, propertyStatusTerms]);
+const SearchPage = async ({ searchParams }: { searchParams?: NextSearchParams }) => {
+	const [amenities, propertyStatus, propertiesPostType] = await Promise.all([
+		fetcher<TaxonomyTerm[]>('/amenities'),
+		fetcher<TaxonomyTerm[]>('/property_status'),
+		fetcher<WordpressPropertyPostType[]>(
+			`/properties?_embed&${createWordpressQuery(searchParams)}`,
+			{ cache: 'no-cache' },
+		),
+	]);
+
+	const properties = normalizeWordpressProperties(propertiesPostType);
 
 	return (
-		<Container>
-			<Title>Search your new home</Title>
+		<Wrapper>
+			<Container>
+				<Title>Search your new home</Title>
 
-			<Filters
-				amenities={amenities}
-				propertyStatus={propertyStatus}
-				initialFilters={createInitialFilters(
-					[...amenities, ...propertyStatus],
-					searchParams,
-				)}
-			/>
-		</Container>
+				<Filters
+					amenities={amenities}
+					propertyStatus={propertyStatus}
+					initialFilters={createInitialFilters(
+						[...amenities, ...propertyStatus],
+						searchParams,
+					)}
+				/>
+
+				<List>
+					{properties.map((property) => (
+						<PropertyCard key={property.id} property={property} />
+					))}
+				</List>
+			</Container>
+		</Wrapper>
 	);
 };
 

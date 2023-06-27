@@ -4,8 +4,9 @@ import { Heart, Dumbbell, ParkingSquare, Waves } from 'lucide-react';
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 import { Property } from '@/types';
+import HouseCoverPlaceholder from '@/assets/house-placeholder.png';
 
-const Wrapper = styled.div`
+const Wrapper = styled.li`
 	display: block;
 	overflow: hidden;
 
@@ -86,7 +87,7 @@ const Amenity = styled.li`
 
 const amenitiesIcons = {
 	gym: <Dumbbell size={16} />,
-	park: <ParkingSquare size={16} />,
+	parking: <ParkingSquare size={16} />,
 	pool: <Waves size={16} />,
 };
 
@@ -99,7 +100,7 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
 		<Wrapper>
 			<Link href={`/property/${property.id}`} className={imageWrapper}>
 				<Image
-					src={property.cover}
+					src={property.cover ?? HouseCoverPlaceholder}
 					alt={property.title}
 					width={300}
 					height={160}

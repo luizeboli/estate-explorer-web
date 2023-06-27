@@ -1,23 +1,3 @@
-export type Property = {
-	id: number;
-	cover: string;
-	title: string;
-	location: string;
-	price: number;
-	status: PropertyStatus;
-	amenities: PropertyAmenity[];
-};
-
-export type PropertyStatus = {
-	slug: string;
-	name: string;
-};
-
-export type PropertyAmenity = {
-	slug: string;
-	name: string;
-};
-
 export type TaxonomyTitle = 'property_status' | 'amenities';
 
 export type TaxonomyTerm = {
@@ -25,4 +5,38 @@ export type TaxonomyTerm = {
 	name: string;
 	slug: string;
 	taxonomy: TaxonomyTitle;
+};
+
+export type Taxonomy = TaxonomyTerm[];
+
+export type WordpressPropertyPostType = {
+	id: number;
+	title: {
+		rendered: string;
+	};
+	meta: {
+		description: string;
+		location: string;
+		price: number;
+	};
+	_embedded: {
+		'wp:featuredmedia': {
+			source_url: string;
+		}[];
+		'wp:term': Taxonomy[];
+	};
+};
+
+export type Property = {
+	id: number;
+	cover: string | null;
+	title: string;
+	location: string;
+	price: number;
+	status: TaxonomyTerm;
+	amenities: TaxonomyTerm[];
+};
+
+export type NextSearchParams = {
+	[key: string]: string | string[] | undefined;
 };
