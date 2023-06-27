@@ -64,34 +64,28 @@ const properties: Property[] = [
 	},
 ];
 
-const Container = styled.div`
-	overflow-y: auto;
-	overflow-x: hidden;
-`;
-
 const ContentWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
-	padding: 5.4rem 1.2rem;
+	padding: 5.4rem 1.2rem 0;
 	gap: 5.4rem;
-	padding-bottom: 3.2rem;
 
 	@media screen and (min-width: 768px) {
-		padding: 5.4rem 3.2rem;
+		padding: 5.4rem 3.2rem 0;
 	}
 `;
 
 const HomePage = () => {
 	return (
-		<Container>
+		<>
 			<HomeHero />
 
 			<ContentWrapper>
 				<HomeContent />
 				<FeaturedProperties properties={properties} />
 			</ContentWrapper>
-		</Container>
+		</>
 	);
 };
 

@@ -3,6 +3,7 @@ import 'normalize.css/normalize.css';
 import './global.css';
 import { css } from '@linaria/core';
 import Navbar from '@/components/Navbar';
+import { styled } from '@linaria/react';
 
 export const metadata = {
 	title: 'Estate Explorer',
@@ -17,12 +18,18 @@ const body = css`
 	background-color: rgb(250 250 250);
 `;
 
+const ScrollableContainer = styled.div`
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-bottom: 5.4rem;
+`;
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html lang="en" className={inter.className}>
 			<body className={body}>
 				<Navbar />
-				{children}
+				<ScrollableContainer>{children}</ScrollableContainer>
 			</body>
 		</html>
 	);
