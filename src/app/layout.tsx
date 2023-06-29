@@ -1,11 +1,13 @@
 import { Inter } from 'next/font/google';
 import 'normalize.css/normalize.css';
-import './global.css';
 import { css } from '@linaria/core';
 import Navbar from '@/components/Navbar';
 import { styled } from '@linaria/react';
 import { Metadata } from 'next';
 import AppProviders from '@/components/AppProviders';
+import ProgressBar from '@/components/ProgressBar';
+import 'nprogress/nprogress.css';
+import './global.css';
 
 export const metadata: Metadata = {
 	title: 'Estate Explorer',
@@ -32,6 +34,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 		<html lang="en" className={inter.className}>
 			<body className={body}>
 				<AppProviders>
+					<ProgressBar />
 					<Navbar />
 					<ScrollableContainer>{children}</ScrollableContainer>
 				</AppProviders>
