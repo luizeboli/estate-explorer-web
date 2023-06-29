@@ -57,7 +57,9 @@ export type WordpressCommonQueryParams = Partial<{
 	slug: string;
 }>;
 
-export type WordpressPropertyQueryParams = Partial<{
+export type WordpressPropertyTermsQueryParams = Partial<{
 	[key in TaxonomyTitleSlug]: string;
-}> &
+}>;
+
+export type WordpressPropertyQueryParams = WordpressPropertyTermsQueryParams &
 	WordpressCommonQueryParams;

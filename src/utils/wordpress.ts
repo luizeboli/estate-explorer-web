@@ -1,24 +1,30 @@
 import {
-	NextSearchParams,
 	Property,
 	PropertyStatus,
 	Taxonomy,
 	TaxonomyTerm,
 	TaxonomyTitle,
 	WordpressPropertyPostType,
+	WordpressPropertyTermsQueryParams,
 } from '@/types';
 
-export const createWordpressQuery = (searchParams?: NextSearchParams) => {
-	if (!searchParams) return '';
+type PrepareTermsSlugQueryParams = {
+	[K in TaxonomyTitle]: K extends 'property_status' ? PropertyStatus : TaxonomyTerm[];
+};
 
-	const newQuery = new URLSearchParams();
+export const prepareTermsSlugQuery = (props?: PrepareTermsSlugQueryParams) => {
+	if (!props) return {};
 
-	Object.entries(searchParams).forEach(([taxonomy, terms]) => {
-		if (typeof terms !== 'string') return;
-		newQuery.append(`${taxonomy}_slug`, terms);
-	});
+	const keys = Object.keys(props) as Array<keyof typeof props>;
+	return keys.reduce<WordpressPropertyTermsQueryParams>((acc, key) => {
+		const value = props[key as TaxonomyTitle];
+		if (!value) return acc;
 
-	return newQuery.toString();
+		const queryValue = Array.isArray(value) ? value.map(({ slug }) => slug).join(',') : value;
+
+		acc[`${key}_slug`] = queryValue;
+		return acc;
+	}, {});
 };
 
 const normalizeTaxonomies = (taxonomies: Taxonomy[]) => {

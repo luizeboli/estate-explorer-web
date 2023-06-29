@@ -1,6 +1,6 @@
 import { getProperties } from '@/services/api';
 import { Property, WordpressPropertyQueryParams } from '@/types';
-import { useMemo } from 'react';
+import { prepareTermsSlugQuery } from '@/utils/wordpress';
 import useSWR from 'swr';
 
 type UseSimilarPropertiesProps = {
@@ -9,17 +9,11 @@ type UseSimilarPropertiesProps = {
 };
 
 const useSimilarProperties = ({ baseProperty, params }: UseSimilarPropertiesProps) => {
-	const taxonomyParams = useMemo<WordpressPropertyQueryParams>(() => {
-		const { status, amenities } = baseProperty;
-
-		return {
-			property_status_slug: status,
-			amenities_slug: amenities.map(({ slug }) => slug).join(','),
-		};
-	}, [baseProperty]);
+	const { amenities, property_status } = baseProperty;
+	const termsParams = prepareTermsSlugQuery({ amenities, property_status });
 
 	return useSWR(
-		['get-similar-properties', { ...taxonomyParams, ...params, exclude: baseProperty.id }],
+		['get-similar-properties', { ...params, ...termsParams, exclude: baseProperty.id }],
 		([, params]) => getProperties({ params }),
 	);
 };

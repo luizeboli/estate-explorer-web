@@ -1,6 +1,6 @@
 type QueryParams = { [key: string]: number | string | string[] | undefined };
 
-type FetcherOptions = {
+export type FetcherOptions = {
 	params?: QueryParams;
 } & RequestInit;
 
@@ -33,7 +33,7 @@ export const fetcher = async <TData>(
 	const data = await response.json();
 
 	if (response.status >= 400) {
-		throw new Error(data);
+		throw data;
 	}
 
 	return data;

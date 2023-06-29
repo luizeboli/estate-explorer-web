@@ -1,10 +1,10 @@
 import Filters from '@/components/Filters';
-import { NextSearchParams, TaxonomyTerm, WordpressPropertyPostType } from '@/types';
+import { NextSearchParams, TaxonomyTerm } from '@/types';
 import { styled } from '@linaria/react';
 import { fetcher } from '@/services/fetcher';
 import PropertyCard from '@/components/PropertyCard';
-import { createWordpressQuery, normalizeWordpressProperties } from '@/utils/wordpress';
-import { createInitialFilters } from './helpers';
+import { getProperties } from '@/services/api';
+import { createInitialFilters, prepareTermsSearchParams } from './helpers';
 
 const Wrapper = styled.div`
 	padding: 5.4rem 5% 0;
@@ -47,16 +47,12 @@ const Properties = styled.div`
 `;
 
 const SearchPage = async ({ searchParams }: { searchParams?: NextSearchParams }) => {
-	const [amenities, propertyStatus, propertiesPostType] = await Promise.all([
+	const termsParams = prepareTermsSearchParams(searchParams);
+	const [amenities, propertyStatus, properties] = await Promise.all([
 		fetcher<TaxonomyTerm[]>('/amenities'),
 		fetcher<TaxonomyTerm[]>('/property_status'),
-		fetcher<WordpressPropertyPostType[]>(
-			`/properties?_embed&${createWordpressQuery(searchParams)}`,
-			{ cache: 'no-cache' },
-		),
+		getProperties({ params: { ...termsParams, per_page: 10 } }),
 	]);
-
-	const properties = normalizeWordpressProperties(propertiesPostType);
 
 	return (
 		<Wrapper>
