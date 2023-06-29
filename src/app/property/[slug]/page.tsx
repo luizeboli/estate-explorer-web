@@ -148,7 +148,7 @@ const PropertyPage = async ({ params }: PropertyPageProps) => {
 
 	if (!property) notFound();
 
-	const { title, cover, location, description, amenities, status, price } = property;
+	const { title, cover, location, description, amenities, property_status, price } = property;
 
 	return (
 		<Wrapper>
@@ -190,11 +190,11 @@ const PropertyPage = async ({ params }: PropertyPageProps) => {
 
 					<Apply>
 						<ApplyTitle>
-							{status === 'for-rent' ? 'Rent price' : 'Buy price'}
+							{property_status === 'for-rent' ? 'Rent price' : 'Buy price'}
 						</ApplyTitle>
 						<Price>
 							{price}
-							{status === 'for-rent' && <span> /month</span>}
+							{property_status === 'for-rent' && <span> /month</span>}
 						</Price>
 
 						<BuyButton>

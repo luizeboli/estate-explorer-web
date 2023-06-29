@@ -46,7 +46,7 @@ const formatCurrency = (price: number) =>
 export const normalizeWordpressProperties = (properties: WordpressPropertyPostType[]): Property[] =>
 	properties.map(({ _embedded, id, slug, title, meta: { description, location, price } }) => {
 		const taxonomiesWithTerms = _embedded?.['wp:term'] ?? [];
-		const { property_status: status, ...taxonomies } = normalizeTaxonomies(taxonomiesWithTerms);
+		const { property_status, ...taxonomies } = normalizeTaxonomies(taxonomiesWithTerms);
 
 		return {
 			id,
@@ -56,7 +56,7 @@ export const normalizeWordpressProperties = (properties: WordpressPropertyPostTy
 			description,
 			location,
 			price: formatCurrency(price),
-			status: status.slug as PropertyStatus,
+			property_status: property_status.slug as PropertyStatus,
 			...taxonomies,
 		};
 	});

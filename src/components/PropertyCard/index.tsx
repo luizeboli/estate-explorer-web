@@ -126,7 +126,7 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
 					<div>
 						<Price>
 							{property.price}
-							{property.status === 'for-rent' && <span> /month</span>}
+							{property.property_status === 'for-rent' && <span> /month</span>}
 						</Price>
 
 						<Title>{property.title}</Title>

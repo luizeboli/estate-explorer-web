@@ -42,7 +42,7 @@ export type Property = {
 	description: string;
 	location: string;
 	price: string;
-	status: PropertyStatus;
+	property_status: PropertyStatus;
 	amenities: TaxonomyTerm[];
 };
 
