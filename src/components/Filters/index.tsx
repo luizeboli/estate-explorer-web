@@ -2,7 +2,7 @@
 
 import { styled } from '@linaria/react';
 import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { TaxonomyTerm } from '@/types/taxonomy';
 import { FilterState } from './types';
 import TaxonomyFilter from './TaxonomyFilter';
@@ -32,10 +32,41 @@ const Container = styled.ul`
 	}
 `;
 
+const ClearFilters = styled.button`
+	align-self: flex-start;
+	color: rgb(126 34 206);
+	padding: 0.8rem 1.2rem;
+	border-radius: 0.6rem;
+	font-size: 1.4rem;
+	font-weight: 500;
+	width: 100%;
+
+	&:hover:not(:disabled) {
+		background-color: rgb(243 232 255);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.54;
+	}
+`;
+
 type FiltersProps = {
 	amenities: TaxonomyTerm[];
 	propertyStatus: TaxonomyTerm[];
 	initialFilters: FilterState;
+};
+
+const freshFiltersState: FilterState = {
+	amenities: {
+		gym: false,
+		parking: false,
+		pool: false,
+	},
+	property_status: {
+		'for-rent': false,
+		'for-sale': false,
+	},
 };
 
 const Filters = ({ amenities, propertyStatus, initialFilters }: FiltersProps) => {
@@ -43,16 +74,34 @@ const Filters = ({ amenities, propertyStatus, initialFilters }: FiltersProps) =>
 	const router = useRouter();
 	const [filters, setFilters] = useState(initialFilters);
 
-	const updateFilters = (taxonomy: keyof FilterState) => (slug: string, value: boolean) => {
-		const newFilters = { ...filters, [taxonomy]: { ...filters[taxonomy], [slug]: value } };
-		setFilters(newFilters);
+	const hasActiveFilters = useMemo(() => {
+		return Object.values(filters).some((filter) =>
+			Object.values(filter).some((value) => value),
+		);
+	}, [filters]);
 
+	const pushNewQuery = (newFilters: FilterState) => {
 		const query = buildSearchQueryString(newFilters);
 		router.push(`${pathname}?${decodeURIComponent(query.toString())}`);
 	};
 
+	const updateFilters = (taxonomy: keyof FilterState) => (slug: string, value: boolean) => {
+		const newFilters = { ...filters, [taxonomy]: { ...filters[taxonomy], [slug]: value } };
+		setFilters(newFilters);
+		pushNewQuery(newFilters);
+	};
+
+	const handleResetFilters = () => {
+		setFilters(freshFiltersState);
+		pushNewQuery(freshFiltersState);
+	};
+
 	return (
 		<Wrapper>
+			<ClearFilters onClick={() => handleResetFilters()} disabled={!hasActiveFilters}>
+				Clear Filters
+			</ClearFilters>
+
 			<Container>
 				<TaxonomyFilter
 					title="Status"
