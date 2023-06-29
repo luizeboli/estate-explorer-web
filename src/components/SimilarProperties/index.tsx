@@ -1,6 +1,6 @@
 'use client';
 
-import PropertyCard from '@/components/PropertyCard';
+import * as PropertyCard from '@/components/PropertyCard';
 import Spinner from '@/components/Spinner';
 import useSimilarProperties from '@/hooks/useSimilarProperties';
 import { Property } from '@/types';
@@ -61,7 +61,11 @@ const SimilarProperties = ({ baseProperty }: SimilarPropertiesProps) => {
 
 				<List>
 					{properties?.map((property) => (
-						<PropertyCard key={property.id} property={property} />
+						<PropertyCard.Root key={property.id} property={property}>
+							<PropertyCard.Cover />
+							<PropertyCard.Body />
+							<PropertyCard.Footer />
+						</PropertyCard.Root>
 					))}
 				</List>
 			</Container>

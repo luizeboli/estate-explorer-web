@@ -2,7 +2,7 @@ import Filters from '@/components/Filters';
 import { NextSearchParams, TaxonomyTerm } from '@/types';
 import { styled } from '@linaria/react';
 import { fetcher } from '@/services/fetcher';
-import PropertyCard from '@/components/PropertyCard';
+import * as PropertyCard from '@/components/PropertyCard';
 import { getProperties } from '@/services/api';
 import { createInitialFilters, prepareTermsSearchParams } from './helpers';
 
@@ -69,13 +69,19 @@ const SearchPage = async ({ searchParams }: { searchParams?: NextSearchParams })
 						)}
 					/>
 
-					{properties.length ? (
+					{!!properties.length && (
 						<List>
 							{properties.map((property) => (
-								<PropertyCard key={property.id} property={property} />
+								<PropertyCard.Root key={property.id} property={property}>
+									<PropertyCard.Cover />
+									<PropertyCard.Body />
+									<PropertyCard.Footer />
+								</PropertyCard.Root>
 							))}
 						</List>
-					) : (
+					)}
+
+					{!properties.length && (
 						<EmptyStateText>
 							No properties found. Try changing your filters.
 						</EmptyStateText>
