@@ -4,9 +4,10 @@ import { styled } from '@linaria/react';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import HouseCoverPlaceholder from '@/assets/house-placeholder.png';
-import { Dumbbell, ListChecks, ParkingSquare, Waves } from 'lucide-react';
+import { ListChecks } from 'lucide-react';
 import SimilarProperties from '@/components/SimilarProperties';
 import { getProperties } from '@/services/api';
+import AmenityIcon from '@/components/AmenityIcon';
 
 const Wrapper = styled.div`
 	padding: 5.4rem 5% 0;
@@ -64,6 +65,7 @@ const AmenityItem = styled.li`
 	color: rgb(115 115 115);
 
 	& svg {
+		margin-right: 0.4rem;
 		color: rgb(126 34 206);
 		vertical-align: middle;
 	}
@@ -131,12 +133,6 @@ const ApplyTitle = styled.p`
 	color: rgb(82 82 82);
 `;
 
-const amenitiesIcons = {
-	gym: <Dumbbell size={16} />,
-	parking: <ParkingSquare size={16} />,
-	pool: <Waves size={16} />,
-};
-
 type PropertyPageProps = {
 	params: {
 		slug: string;
@@ -176,7 +172,7 @@ const PropertyPage = async ({ params }: PropertyPageProps) => {
 				<Amenities>
 					{amenities.map((amenity) => (
 						<AmenityItem key={amenity.id}>
-							{amenitiesIcons[amenity.slug as keyof typeof amenitiesIcons]}{' '}
+							<AmenityIcon slug={amenity.slug} size={16} />
 							{amenity.name}
 						</AmenityItem>
 					))}
