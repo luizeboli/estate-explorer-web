@@ -1,2 +1,17 @@
-export const fetcher = <TData>(pathname: string, options?: RequestInit): Promise<TData> =>
-	fetch(`${process.env.NEXT_PUBLIC_WP_HOST}${pathname}`, options).then((res) => res.json());
+import { fetcher } from '@/services/fetcher';
+import { WordpressPropertyPostType, WordpressPropertyQueryParams } from '@/types';
+import { normalizeWordpressProperties } from '@/utils/wordpress';
+
+export const getTaxonomyTerms = () => {};
+
+type GetPropertiesParams = {
+	params: WordpressPropertyQueryParams;
+};
+
+export const getProperties = async ({ params }: GetPropertiesParams) => {
+	const data = await fetcher<WordpressPropertyPostType[]>('/properties', {
+		params: { ...params, _embed: '' },
+	});
+
+	return normalizeWordpressProperties(data);
+};

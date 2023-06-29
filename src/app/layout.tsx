@@ -5,6 +5,7 @@ import { css } from '@linaria/core';
 import Navbar from '@/components/Navbar';
 import { styled } from '@linaria/react';
 import { Metadata } from 'next';
+import AppProviders from '@/components/AppProviders';
 
 export const metadata: Metadata = {
 	title: 'Estate Explorer',
@@ -30,8 +31,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html lang="en" className={inter.className}>
 			<body className={body}>
-				<Navbar />
-				<ScrollableContainer>{children}</ScrollableContainer>
+				<AppProviders>
+					<Navbar />
+					<ScrollableContainer>{children}</ScrollableContainer>
+				</AppProviders>
 			</body>
 		</html>
 	);

@@ -30,6 +30,10 @@ const PriceTitleWrapper = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 0.8rem;
+
+	> div {
+		display: grid;
+	}
 `;
 
 const Price = styled.p`
@@ -48,6 +52,9 @@ const Price = styled.p`
 const Title = styled.p`
 	font-size: 1.6rem;
 	font-weight: 500;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 `;
 
 const AddToWishList = styled.button`
@@ -118,11 +125,8 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
 				<PriceTitleWrapper>
 					<div>
 						<Price>
-							{new Intl.NumberFormat('en-US', {
-								style: 'currency',
-								currency: 'USD',
-							}).format(property.price)}
-							{property.status.slug === 'for-rent' && <span> /month</span>}
+							{property.price}
+							{property.status === 'for-rent' && <span> /month</span>}
 						</Price>
 
 						<Title>{property.title}</Title>

@@ -1,13 +1,10 @@
 import Filters from '@/components/Filters';
 import { NextSearchParams, TaxonomyTerm, WordpressPropertyPostType } from '@/types';
 import { styled } from '@linaria/react';
-import { fetcher } from '@/services/api';
+import { fetcher } from '@/services/fetcher';
 import PropertyCard from '@/components/PropertyCard';
-import {
-	createInitialFilters,
-	createWordpressQuery,
-	normalizeWordpressProperties,
-} from './helpers';
+import { createWordpressQuery, normalizeWordpressProperties } from '@/utils/wordpress';
+import { createInitialFilters } from './helpers';
 
 const Wrapper = styled.div`
 	padding: 5.4rem 5% 0;
