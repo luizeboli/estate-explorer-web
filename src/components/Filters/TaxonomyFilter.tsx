@@ -27,10 +27,12 @@ const Wrapper = styled.li`
 const Container = styled.fieldset`
 	display: flex;
 	flex-direction: column;
+	gap: 0.8rem;
 `;
 
 const Title = styled.legend`
 	font-size: 1.6rem;
+	font-weight: 500;
 	margin-bottom: 0.8rem;
 `;
 

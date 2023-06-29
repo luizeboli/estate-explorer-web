@@ -24,8 +24,7 @@ const Container = styled.ul`
 	background-color: #fff;
 	border: 1px solid #d4d4d8;
 	border-radius: 0.6rem;
-	padding: 0.8rem 1.4rem;
-	flex-grow: 1;
+	padding: 1.6rem 2.4rem;
 
 	@media screen and (min-width: 1024px) {
 		gap: 2.4rem;
