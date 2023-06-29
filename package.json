@@ -37,6 +37,6 @@
     "lint-staged": "^13.2.2"
   },
   "lint-staged": {
-    "*.{ts,tsx}": "eslint --cache --fix"
+    "*.{ts,tsx}":["npm run typecheck", "eslint --cache --fix"]
   }
 }
