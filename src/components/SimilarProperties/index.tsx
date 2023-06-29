@@ -61,11 +61,13 @@ const SimilarProperties = ({ baseProperty }: SimilarPropertiesProps) => {
 
 				<List>
 					{properties?.map((property) => (
-						<PropertyCard.Root key={property.id} property={property}>
-							<PropertyCard.Cover />
-							<PropertyCard.Body />
-							<PropertyCard.Footer />
-						</PropertyCard.Root>
+						<li key={property.id}>
+							<PropertyCard.Root property={property}>
+								<PropertyCard.Cover />
+								<PropertyCard.Body />
+								<PropertyCard.Footer />
+							</PropertyCard.Root>
+						</li>
 					))}
 				</List>
 			</Container>

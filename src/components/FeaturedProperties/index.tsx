@@ -1,4 +1,4 @@
-import PropertyCard from '@/components/PropertyCard';
+import * as PropertyCard from '@/components/PropertyCard';
 import { Property } from '@/types';
 import { styled } from '@linaria/react';
 
@@ -50,7 +50,11 @@ const FeaturedProperties = ({ properties }: FeaturePropertiesProps) => {
 			<List>
 				{properties.map((property) => (
 					<li key={property.id}>
-						<PropertyCard property={property} />
+						<PropertyCard.Root property={property}>
+							<PropertyCard.Cover />
+							<PropertyCard.Body />
+							<PropertyCard.Footer />
+						</PropertyCard.Root>
 					</li>
 				))}
 			</List>

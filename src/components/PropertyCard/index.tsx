@@ -4,7 +4,7 @@ import { styled } from '@linaria/react';
 import { Property } from '@/types';
 import { PropertyContext } from './context';
 
-const Wrapper = styled.li`
+const Wrapper = styled.div`
 	display: block;
 	overflow: hidden;
 
