@@ -1,9 +1,10 @@
 import Filters from '@/components/Filters';
-import { NextSearchParams, TaxonomyTerm } from '@/types';
+import { NextSearchParams } from '@/types';
 import { styled } from '@linaria/react';
 import { fetcher } from '@/services/fetcher';
 import * as PropertyCard from '@/components/PropertyCard';
 import { getProperties } from '@/services/api';
+import { TaxonomyTerm } from '@/types/taxonomy';
 import { createInitialFilters, prepareTermsSearchParams } from './helpers';
 
 const Wrapper = styled.div`

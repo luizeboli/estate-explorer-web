@@ -1,5 +1,7 @@
 import { FilterState } from '@/components/Filters/types';
-import { NextSearchParams, TaxonomyTerm, TaxonomyTitle, TaxonomyTitleSlug } from '@/types';
+import { NextSearchParams } from '@/types';
+import { TaxonomyTerm, TaxonomyTitle, TaxonomyTitleSlug } from '@/types/taxonomy';
+import { WordpressPropertyTermsQueryParams } from '@/types/wordpress';
 
 export const createInitialFilters = (terms: TaxonomyTerm[], searchParams?: NextSearchParams) => {
 	return terms.reduce((acc, { taxonomy, slug }) => {
@@ -15,16 +17,12 @@ export const createInitialFilters = (terms: TaxonomyTerm[], searchParams?: NextS
 	}, {} as FilterState);
 };
 
-type TermsParams = Partial<{
-	[key in TaxonomyTitleSlug]: string;
-}>;
-
 export const prepareTermsSearchParams = (searchParams?: NextSearchParams) => {
 	if (!searchParams) return {};
 
 	const allowedParams = ['property_status', 'amenities'] satisfies TaxonomyTitle[];
 
-	return Object.keys(searchParams).reduce<TermsParams>((acc, key) => {
+	return Object.keys(searchParams).reduce<WordpressPropertyTermsQueryParams>((acc, key) => {
 		const paramValue = searchParams[key];
 
 		if (!paramValue) return acc;

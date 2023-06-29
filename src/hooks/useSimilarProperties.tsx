@@ -1,5 +1,6 @@
 import { getProperties } from '@/services/api';
-import { Property, WordpressPropertyQueryParams } from '@/types';
+import { Property } from '@/types';
+import { WordpressPropertyQueryParams } from '@/types/wordpress';
 import { prepareTermsSlugQuery } from '@/utils/wordpress';
 import useSWR from 'swr';
 

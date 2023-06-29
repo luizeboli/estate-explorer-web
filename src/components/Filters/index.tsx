@@ -1,9 +1,9 @@
 'use client';
 
-import { TaxonomyTerm } from '@/types';
 import { styled } from '@linaria/react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { TaxonomyTerm } from '@/types/taxonomy';
 import { FilterState } from './types';
 import TaxonomyFilter from './TaxonomyFilter';
 import { buildSearchQueryString } from './helpers';

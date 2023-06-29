@@ -1,7 +1,7 @@
-import { TaxonomyTitle } from '@/types';
+import { TaxonomiesSlugs, TaxonomyTitle } from '@/types/taxonomy';
 
 export type FilterState = {
 	[Title in TaxonomyTitle]: {
-		[slug: string]: boolean;
+		[slug in TaxonomiesSlugs[Title]]: boolean;
 	};
 };

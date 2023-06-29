@@ -87,6 +87,7 @@ const HomeContent = () => {
 						width: '100%',
 						height: 'auto',
 					}}
+					priority
 				/>
 			</PanelImageWrapper>
 

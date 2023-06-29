@@ -1,15 +1,9 @@
-import {
-	Property,
-	PropertyStatus,
-	Taxonomy,
-	TaxonomyTerm,
-	TaxonomyTitle,
-	WordpressPropertyPostType,
-	WordpressPropertyTermsQueryParams,
-} from '@/types';
+import { Property } from '@/types';
+import { PropertyStatusTermSlug, Taxonomies, Taxonomy, TaxonomyTitle } from '@/types/taxonomy';
+import { WordpressPropertyPostType, WordpressPropertyTermsQueryParams } from '@/types/wordpress';
 
 type PrepareTermsSlugQueryParams = {
-	[K in TaxonomyTitle]: K extends 'property_status' ? PropertyStatus : TaxonomyTerm[];
+	[K in TaxonomyTitle]: K extends 'property_status' ? PropertyStatusTermSlug : Taxonomies[K];
 };
 
 export const prepareTermsSlugQuery = (props?: PrepareTermsSlugQueryParams) => {
@@ -17,11 +11,10 @@ export const prepareTermsSlugQuery = (props?: PrepareTermsSlugQueryParams) => {
 
 	const keys = Object.keys(props) as Array<keyof typeof props>;
 	return keys.reduce<WordpressPropertyTermsQueryParams>((acc, key) => {
-		const value = props[key as TaxonomyTitle];
+		const value = props[key];
 		if (!value) return acc;
 
 		const queryValue = Array.isArray(value) ? value.map(({ slug }) => slug).join(',') : value;
-
 		acc[`${key}_slug`] = queryValue;
 		return acc;
 	}, {});
@@ -31,19 +24,11 @@ const normalizeTaxonomies = (taxonomies: Taxonomy[]) => {
 	return taxonomies.reduce((acc, taxonomyTerms) => {
 		const [term] = taxonomyTerms;
 		const { taxonomy } = term;
-
-		if (taxonomy === 'property_status') {
-			return {
-				...acc,
-				[taxonomy]: taxonomyTerms?.[0],
-			};
-		}
-
 		return {
 			...acc,
 			[taxonomy]: taxonomyTerms,
 		};
-	}, {} as { [key in TaxonomyTitle]: key extends 'property_status' ? TaxonomyTerm : TaxonomyTerm[] });
+	}, {} as { [K in TaxonomyTitle]: Taxonomies[K] });
 };
 
 const formatCurrency = (price: number) =>
@@ -62,7 +47,7 @@ export const normalizeWordpressProperties = (properties: WordpressPropertyPostTy
 			description,
 			location,
 			price: formatCurrency(price),
-			property_status: property_status.slug as PropertyStatus,
+			property_status: property_status[0].slug,
 			...taxonomies,
 		};
 	});

@@ -1,5 +1,4 @@
 import { fetcher } from '@/services/fetcher';
-import { WordpressPropertyPostType } from '@/types';
 import { styled } from '@linaria/react';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -8,6 +7,7 @@ import { ListChecks } from 'lucide-react';
 import SimilarProperties from '@/components/SimilarProperties';
 import { getProperties } from '@/services/api';
 import AmenityIcon from '@/components/AmenityIcon';
+import { WordpressPropertyPostType } from '@/types/wordpress';
 
 const Wrapper = styled.div`
 	padding: 5.4rem 5% 0;

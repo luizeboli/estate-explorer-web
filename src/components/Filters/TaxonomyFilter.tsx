@@ -1,5 +1,5 @@
 import Checkbox from '@/components/Checkbox';
-import { TaxonomyTerm } from '@/types';
+import { TaxonomyTerm } from '@/types/taxonomy';
 import { styled } from '@linaria/react';
 
 const Wrapper = styled.li`

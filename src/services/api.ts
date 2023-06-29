@@ -1,5 +1,5 @@
 import { FetcherOptions, fetcher } from '@/services/fetcher';
-import { WordpressPropertyPostType, WordpressPropertyQueryParams } from '@/types';
+import { WordpressPropertyPostType, WordpressPropertyQueryParams } from '@/types/wordpress';
 import { normalizeWordpressProperties } from '@/utils/wordpress';
 
 export const getTaxonomyTerms = () => {};
