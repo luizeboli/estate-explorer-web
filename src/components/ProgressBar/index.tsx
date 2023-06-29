@@ -7,7 +7,10 @@ NProgress.configure({ showSpinner: false });
 
 const ProgressBar = () => {
 	useNavigationEvents({ callback: () => NProgress.done() });
-	NProgress.start();
+
+	if (typeof window !== 'undefined') {
+		NProgress.start();
+	}
 
 	return null;
 };
