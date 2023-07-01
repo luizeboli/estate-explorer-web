@@ -8,6 +8,7 @@ import SimilarProperties from '@/components/SimilarProperties';
 import { getProperties } from '@/services/api';
 import AmenityIcon from '@/components/AmenityIcon';
 import { WordpressPropertyPostType } from '@/types/wordpress';
+import Button from '@/components/Button';
 
 const Wrapper = styled.div`
 	padding: 5.4rem 5% 0;
@@ -97,26 +98,6 @@ const Price = styled.p`
 	}
 `;
 
-const BuyButton = styled.button`
-	align-self: flex-start;
-	color: #fff;
-	padding: 0.8rem 1.2rem;
-	background-color: rgb(168 85 247);
-	border-radius: 0.6rem;
-	font-size: 1.4rem;
-	font-weight: 500;
-	width: 100%;
-
-	&:hover {
-		background-color: rgb(126 34 206);
-	}
-
-	& svg {
-		margin-right: 0.8rem;
-		vertical-align: middle;
-	}
-`;
-
 const BottomWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -193,10 +174,9 @@ const PropertyPage = async ({ params }: PropertyPageProps) => {
 							{property_status === 'for-rent' && <span> /month</span>}
 						</Price>
 
-						<BuyButton>
-							<ListChecks />
+						<Button startIcon={<ListChecks />} variant="contained" fullWidth>
 							Apply now
-						</BuyButton>
+						</Button>
 					</Apply>
 				</BottomWrapper>
 

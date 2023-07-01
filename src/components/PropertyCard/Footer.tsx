@@ -1,7 +1,7 @@
 'use client';
 
 import { styled } from '@linaria/react';
-import { Dumbbell, ParkingSquare, Waves } from 'lucide-react';
+import AmenityIcon from '@/components/AmenityIcon';
 import { usePropertyContext } from './context';
 
 const Wrapper = styled.div`
@@ -24,12 +24,6 @@ const Amenity = styled.li`
 	}
 `;
 
-const amenitiesIcons = {
-	gym: <Dumbbell size={16} />,
-	parking: <ParkingSquare size={16} />,
-	pool: <Waves size={16} />,
-};
-
 const Footer = () => {
 	const { amenities } = usePropertyContext();
 	return (
@@ -37,7 +31,7 @@ const Footer = () => {
 			<Amenities>
 				{amenities.map((amenity) => (
 					<Amenity key={amenity.slug}>
-						{amenitiesIcons[amenity.slug as keyof typeof amenitiesIcons]}
+						<AmenityIcon slug={amenity.slug} size={16} />
 						{amenity.name}
 					</Amenity>
 				))}

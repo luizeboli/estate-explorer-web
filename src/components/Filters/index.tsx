@@ -4,6 +4,7 @@ import { styled } from '@linaria/react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useMemo, useState } from 'react';
 import { TaxonomyTerm } from '@/types/taxonomy';
+import Button from '@/components/Button';
 import { FilterState } from './types';
 import TaxonomyFilter from './TaxonomyFilter';
 import { buildSearchQueryString } from './helpers';
@@ -29,25 +30,6 @@ const Container = styled.ul`
 	@media screen and (min-width: 1024px) {
 		gap: 2.4rem;
 		flex-direction: column;
-	}
-`;
-
-const ClearFilters = styled.button`
-	align-self: flex-start;
-	color: rgb(126 34 206);
-	padding: 0.8rem 1.2rem;
-	border-radius: 0.6rem;
-	font-size: 1.4rem;
-	font-weight: 500;
-	width: 100%;
-
-	&:hover:not(:disabled) {
-		background-color: rgb(243 232 255);
-	}
-
-	&:disabled {
-		cursor: not-allowed;
-		opacity: 0.54;
 	}
 `;
 
@@ -98,9 +80,15 @@ const Filters = ({ amenities, propertyStatus, initialFilters }: FiltersProps) =>
 
 	return (
 		<Wrapper>
-			<ClearFilters onClick={() => handleResetFilters()} disabled={!hasActiveFilters}>
+			<Button
+				disabled={!hasActiveFilters}
+				onClick={handleResetFilters}
+				color="primary"
+				variant="contained"
+				fullWidth
+			>
 				Clear Filters
-			</ClearFilters>
+			</Button>
 
 			<Container>
 				<TaxonomyFilter

@@ -3,6 +3,7 @@
 import { ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import { styled } from '@linaria/react';
+import Button from '@/components/Button';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -26,20 +27,6 @@ const ContentButtons = styled.div`
 	gap: 1.2rem;
 
 	background-color: rgb(245 245 245);
-
-	& button {
-		width: inherit;
-		padding: 0.8rem 1.6rem;
-		border-radius: 0.4rem;
-		color: rgb(115 115 115);
-	}
-
-	& button[aria-selected='true'] {
-		border: 1px solid #d4d4d8;
-		background-color: #fff;
-		color: rgb(168 85 247);
-		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-	}
 `;
 
 const TabPanel = styled.div`
@@ -54,47 +41,30 @@ const TabPanel = styled.div`
 	}
 `;
 
-const SeeMore = styled.button`
-	align-self: flex-start;
-	color: #fff;
-	padding: 0.8rem 1.2rem;
-	background-color: rgb(168 85 247);
-	border-radius: 0.6rem;
-	font-size: 1.4rem;
-	font-weight: 500;
-	width: 100%;
-
-	&:hover {
-		background-color: rgb(126 34 206);
-	}
-
-	& svg {
-		vertical-align: middle;
-	}
-`;
-
 const HomeTabs = () => {
 	const [activePanel, setActivePanel] = useState(0);
 
 	return (
 		<Wrapper>
 			<ContentButtons role="tablist">
-				<button
-					type="button"
+				<Button
 					role="tab"
+					variant={activePanel === 0 ? 'outlined' : 'text'}
 					onClick={() => setActivePanel(0)}
 					aria-selected={activePanel === 0}
+					disableElevation={activePanel !== 0}
 				>
 					For tenants
-				</button>
-				<button
-					type="button"
+				</Button>
+				<Button
 					role="tab"
+					variant={activePanel === 1 ? 'outlined' : 'text'}
 					onClick={() => setActivePanel(1)}
 					aria-selected={activePanel === 1}
+					disableElevation={activePanel !== 1}
 				>
-					For landlords
-				</button>
+					For buyers
+				</Button>
 			</ContentButtons>
 
 			<TabPanel role="tabpanel" hidden={activePanel !== 0}>
@@ -117,9 +87,9 @@ const HomeTabs = () => {
 				</p>
 			</TabPanel>
 
-			<SeeMore type="button">
-				See more <ChevronRight size={20} />
-			</SeeMore>
+			<Button variant="contained" endIcon={<ChevronRight size={20} />}>
+				See more
+			</Button>
 		</Wrapper>
 	);
 };
