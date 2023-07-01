@@ -35,7 +35,7 @@ const Container = styled.div`
 
 const List = styled.ul`
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
 	gap: 1.6rem;
 	flex-grow: 1;
 `;
