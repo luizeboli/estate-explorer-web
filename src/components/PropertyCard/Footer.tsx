@@ -17,6 +17,7 @@ const Amenities = styled.ul`
 `;
 
 const Amenity = styled.li`
+	font-size: 1.4rem;
 	& svg {
 		margin-right: 0.4rem;
 		vertical-align: middle;
@@ -31,7 +32,7 @@ const Footer = () => {
 			<Amenities>
 				{amenities.map((amenity) => (
 					<Amenity key={amenity.slug}>
-						<AmenityIcon slug={amenity.slug} size={16} />
+						<AmenityIcon slug={amenity.slug} size={18} />
 						{amenity.name}
 					</Amenity>
 				))}
