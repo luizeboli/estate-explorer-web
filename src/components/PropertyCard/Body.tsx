@@ -1,5 +1,6 @@
-import { Heart } from 'lucide-react';
 import { styled } from '@linaria/react';
+import dynamic from 'next/dynamic';
+import Spinner from '@/components/Spinner';
 import { usePropertyContext } from './context';
 
 const Wrapper = styled.div`
@@ -38,12 +39,6 @@ const Title = styled.p`
 	text-overflow: ellipsis;
 `;
 
-const AddToWishList = styled.button`
-	& svg {
-		color: rgb(168 85 247);
-	}
-`;
-
 const Location = styled.p`
 	font-size: 1.2rem;
 	color: rgb(115 115 115);
@@ -52,6 +47,11 @@ const Location = styled.p`
 	overflow: hidden;
 	text-overflow: ellipsis;
 `;
+
+const AddToWishlistButton = dynamic(() => import('./AddToWishlistButton'), {
+	ssr: false,
+	loading: () => <Spinner size={24} />,
+});
 
 const PropertyBody = () => {
 	const { price, property_status, title, location } = usePropertyContext();
@@ -68,9 +68,7 @@ const PropertyBody = () => {
 					<Title>{title}</Title>
 				</div>
 
-				<AddToWishList type="button">
-					<Heart size={20} />
-				</AddToWishList>
+				<AddToWishlistButton />
 			</PriceTitleWrapper>
 
 			<Location>{location}</Location>
