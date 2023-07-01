@@ -9,6 +9,7 @@ import { getProperties } from '@/services/api';
 import AmenityIcon from '@/components/AmenityIcon';
 import { WordpressPropertyPostType } from '@/types/wordpress';
 import Button from '@/components/Button';
+import { screenMinWidth } from '@/styles/breakpoints';
 
 const Wrapper = styled.div`
 	padding: 5.4rem 5% 0;
@@ -80,7 +81,7 @@ const Apply = styled.div`
 	flex-shrink: 0;
 	height: fit-content;
 
-	@media screen and (min-width: 768px) {
+	${screenMinWidth('md')} {
 		max-width: 300px;
 	}
 `;
@@ -103,7 +104,7 @@ const BottomWrapper = styled.div`
 	flex-direction: column;
 	gap: 2.4rem;
 
-	@media screen and (min-width: 768px) {
+	${screenMinWidth('md')} {
 		flex-direction: row;
 	}
 `;

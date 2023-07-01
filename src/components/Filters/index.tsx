@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useMemo, useState } from 'react';
 import { TaxonomyTerm } from '@/types/taxonomy';
 import Button from '@/components/Button';
+import { screenMinWidth } from '@/styles/breakpoints';
 import { FilterState } from './types';
 import TaxonomyFilter from './TaxonomyFilter';
 import { buildSearchQueryString } from './helpers';
@@ -15,7 +16,7 @@ const Wrapper = styled.div`
 	gap: 1.2rem;
 	margin-bottom: 1.2rem;
 
-	@media screen and (min-width: 1024px) {
+	${screenMinWidth('xmd')} {
 		margin-bottom: 0;
 	}
 `;
@@ -27,7 +28,7 @@ const Container = styled.ul`
 	border-radius: 0.6rem;
 	padding: 1.6rem 2.4rem;
 
-	@media screen and (min-width: 1024px) {
+	${screenMinWidth('xmd')} {
 		gap: 2.4rem;
 		flex-direction: column;
 	}

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import CardImg from '@/assets/home-card.jpg';
 import HomeTabs from '@/components/HomeTabs';
 import { styled } from '@linaria/react';
+import { screenMinWidth } from '@/styles/breakpoints';
 
 const Wrapper = styled.section`
 	display: flex;
@@ -19,7 +20,7 @@ const PanelImageWrapper = styled.div`
 		border-radius: 0.8rem;
 	}
 
-	@media screen and (min-width: 425px) {
+	${screenMinWidth('sm')} {
 		max-width: 30rem;
 	}
 `;
@@ -59,7 +60,7 @@ const PanelImageTip = styled.div`
 		margin-bottom: 0.4rem;
 	}
 
-	@media screen and (min-width: 425px) {
+	${screenMinWidth('sm')} {
 		left: -3.2rem;
 		transform: translateX(0);
 	}

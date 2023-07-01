@@ -2,6 +2,7 @@ import FeaturedProperties from '@/components/FeaturedProperties';
 import HomeContent from '@/components/HomeContent';
 import HomeHero from '@/components/HomeHero';
 import { getProperties } from '@/services/api';
+import { screenMinWidth } from '@/styles/breakpoints';
 import { styled } from '@linaria/react';
 
 const ContentWrapper = styled.div`
@@ -11,7 +12,7 @@ const ContentWrapper = styled.div`
 	padding: 5.4rem 1.2rem 0;
 	gap: 5.4rem;
 
-	@media screen and (min-width: 768px) {
+	${screenMinWidth('md')} {
 		padding: 5.4rem 3.2rem 0;
 	}
 `;

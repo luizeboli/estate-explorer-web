@@ -4,12 +4,13 @@ import { ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import { styled } from '@linaria/react';
 import Button from '@/components/Button';
+import { screenMinWidth } from '@/styles/breakpoints';
 
 const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 
-	@media screen and (min-width: 425px) {
+	${screenMinWidth('sm')} {
 		max-width: 32rem;
 	}
 `;

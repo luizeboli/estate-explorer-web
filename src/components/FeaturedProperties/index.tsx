@@ -1,4 +1,5 @@
 import * as PropertyCard from '@/components/PropertyCard';
+import { screenMinWidth } from '@/styles/breakpoints';
 import { Property } from '@/types';
 import { styled } from '@linaria/react';
 
@@ -6,13 +7,13 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 
-	@media screen and (min-width: 425px) {
+	${screenMinWidth('sm')} {
 		max-width: 32rem;
 		width: 100%;
 		margin: 0 auto;
 	}
 
-	@media screen and (min-width: 768px) {
+	${screenMinWidth('md')} {
 		max-width: 1440px;
 	}
 `;

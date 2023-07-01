@@ -5,6 +5,7 @@ import { fetcher } from '@/services/fetcher';
 import * as PropertyCard from '@/components/PropertyCard';
 import { getProperties } from '@/services/api';
 import { TaxonomyTerm } from '@/types/taxonomy';
+import { screenMinWidth } from '@/styles/breakpoints';
 import { createInitialFilters, prepareTermsSearchParams } from './helpers';
 
 const Wrapper = styled.div`
@@ -32,7 +33,7 @@ const EmptyStateText = styled.p`
 	font-size: 1.6rem;
 	text-align: center;
 
-	@media screen and (min-width: 768px) {
+	${screenMinWidth('md')} {
 		text-align: left;
 	}
 `;
@@ -42,7 +43,7 @@ const Properties = styled.div`
 	flex-direction: column;
 	gap: 3.2rem;
 
-	@media screen and (min-width: 1024px) {
+	${screenMinWidth('xmd')} {
 		flex-direction: row;
 	}
 `;
