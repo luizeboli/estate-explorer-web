@@ -7,7 +7,7 @@ import { Metadata } from 'next';
 import AppProviders from '@/components/AppProviders';
 import ProgressBar from '@/components/ProgressBar';
 import 'nprogress/nprogress.css';
-import './global.css';
+import '@/styles/global.css';
 
 export const metadata: Metadata = {
 	title: 'Estate Explorer',
