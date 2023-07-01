@@ -84,7 +84,7 @@ const Filters = ({ amenities, propertyStatus, initialFilters }: FiltersProps) =>
 				disabled={!hasActiveFilters}
 				onClick={handleResetFilters}
 				color="primary"
-				variant="contained"
+				variant="text"
 				fullWidth
 			>
 				Clear Filters
