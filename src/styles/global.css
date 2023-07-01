@@ -43,4 +43,7 @@ h1 {
   pointer-events:none;
 }
 
-#nprogress .bar { background: rgb(168 85 247); }
+#nprogress .bar { 
+  background: rgb(168 85 247); 
+  height: 4px;
+ }
