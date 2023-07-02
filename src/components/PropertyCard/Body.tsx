@@ -62,7 +62,7 @@ const PropertyBody = () => {
 				<div>
 					<Price>
 						{price}
-						{property_status === 'for-rent' && <span> /month</span>}
+						{property_status.slug === 'for-rent' && <span> /month</span>}
 					</Price>
 
 					<Title>{title}</Title>

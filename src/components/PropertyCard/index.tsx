@@ -6,7 +6,7 @@ import { PropertyContext } from './context';
 
 const Wrapper = styled.div`
 	display: block;
-	overflow: hidden;
+	position: relative;
 
 	border-radius: 0.6rem;
 	border: 1px solid rgb(229 229 229);
@@ -31,4 +31,5 @@ Root.displayName = 'PropertyCardRoot';
 export { default as Cover } from './Cover';
 export { default as Body } from './Body';
 export { default as Footer } from './Footer';
+export { default as StatusTag } from './PropertyStatusTag';
 export { Root };

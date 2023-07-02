@@ -11,7 +11,7 @@ type UseSimilarPropertiesProps = {
 
 const useSimilarProperties = ({ baseProperty, params }: UseSimilarPropertiesProps) => {
 	const { amenities, property_status } = baseProperty;
-	const termsParams = prepareTermsSlugQuery({ amenities, property_status });
+	const termsParams = prepareTermsSlugQuery({ amenities, property_status: property_status.slug });
 
 	return useSWR(
 		['get-similar-properties', { ...params, ...termsParams, exclude: baseProperty.id }],

@@ -1,4 +1,4 @@
-import { AmenityTerm, PropertyStatusTermSlug } from '@/types/taxonomy';
+import { AmenityTerm, PropertyStatusTerm } from '@/types/taxonomy';
 
 export type Property = {
 	id: number;
@@ -8,7 +8,7 @@ export type Property = {
 	description: string;
 	location: string;
 	price: string;
-	property_status: PropertyStatusTermSlug;
+	property_status: PropertyStatusTerm;
 	amenities: AmenityTerm[];
 };
 

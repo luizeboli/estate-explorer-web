@@ -47,7 +47,7 @@ export const normalizeWordpressProperties = (properties: WordpressPropertyPostTy
 			description,
 			location,
 			price: formatCurrency(price),
-			property_status: property_status[0].slug,
+			property_status: property_status[0],
 			...taxonomies,
 		};
 	});

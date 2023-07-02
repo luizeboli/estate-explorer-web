@@ -7,6 +7,8 @@ import { usePropertyContext } from './context';
 const imageWrapper = css`
 	display: flex;
 	position: relative;
+	overflow: hidden;
+	border-radius: 0.6rem;
 `;
 
 const PropertyCover = () => {

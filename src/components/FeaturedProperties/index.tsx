@@ -36,7 +36,7 @@ const Title = styled.h2`
 const List = styled.ul`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-	gap: 1.6rem;
+	gap: 3.2rem;
 `;
 
 type FeaturePropertiesProps = {
@@ -52,6 +52,7 @@ const FeaturedProperties = ({ properties }: FeaturePropertiesProps) => {
 				{properties.map((property) => (
 					<li key={property.id}>
 						<PropertyCard.Root property={property}>
+							<PropertyCard.StatusTag />
 							<PropertyCard.Cover />
 							<PropertyCard.Body />
 							<PropertyCard.Footer />

@@ -168,11 +168,11 @@ const PropertyPage = async ({ params }: PropertyPageProps) => {
 
 					<Apply>
 						<ApplyTitle>
-							{property_status === 'for-rent' ? 'Rent price' : 'Buy price'}
+							{property_status.slug === 'for-rent' ? 'Rent price' : 'Buy price'}
 						</ApplyTitle>
 						<Price>
 							{price}
-							{property_status === 'for-rent' && <span> /month</span>}
+							{property_status.slug === 'for-rent' && <span> /month</span>}
 						</Price>
 
 						<Button startIcon={<ListChecks />} variant="contained" fullWidth>
