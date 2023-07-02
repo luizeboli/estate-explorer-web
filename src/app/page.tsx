@@ -26,7 +26,7 @@ const HomePage = async () => {
 
 			<ContentWrapper>
 				<HomeContent />
-				<FeaturedProperties properties={properties} />
+				{!properties.length && <FeaturedProperties properties={properties} />}
 			</ContentWrapper>
 		</>
 	);
