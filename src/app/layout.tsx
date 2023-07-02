@@ -1,14 +1,11 @@
 import { Inter } from 'next/font/google';
 import 'normalize.css/normalize.css';
-import { css } from '@linaria/core';
 import Navbar from '@/components/Navbar';
-import { styled } from '@linaria/react';
 import { Metadata } from 'next';
 import AppProviders from '@/components/AppProviders';
 import ProgressBar from '@/components/ProgressBar';
 import 'nprogress/nprogress.css';
-import '@/styles/global.css';
-import colors from '@/styles/colors';
+import '@/styles/styles.linaria.global';
 
 export const metadata: Metadata = {
 	title: 'Estate Explorer',
@@ -18,26 +15,14 @@ export const metadata: Metadata = {
 
 const inter = Inter({ subsets: ['latin'] });
 
-const body = css`
-	display: flex;
-	flex-direction: column;
-	background-color: ${colors.neutral[50]};
-`;
-
-const ScrollableContainer = styled.div`
-	overflow-y: auto;
-	overflow-x: hidden;
-	padding-bottom: 5.4rem;
-`;
-
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html lang="en" className={inter.className}>
-			<body className={body}>
+			<body>
 				<AppProviders>
 					<ProgressBar />
 					<Navbar />
-					<ScrollableContainer>{children}</ScrollableContainer>
+					<div id="scrollable-container">{children}</div>
 				</AppProviders>
 			</body>
 		</html>
