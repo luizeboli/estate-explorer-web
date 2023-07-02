@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { styled } from '@linaria/react';
 import Button from '@/components/Button';
 import { screenMinWidth } from '@/styles/breakpoints';
+import Link from 'next/link';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -88,9 +89,11 @@ const HomeTabs = () => {
 				</p>
 			</TabPanel>
 
-			<Button variant="contained" endIcon={<ChevronRight size={20} />}>
-				See more
-			</Button>
+			<Link href="/search">
+				<Button variant="contained" endIcon={<ChevronRight size={20} />}>
+					See properties
+				</Button>
+			</Link>
 		</Wrapper>
 	);
 };
