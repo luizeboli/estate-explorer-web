@@ -14,7 +14,7 @@ import ShareButton from '@/components/ShareButton';
 import colors from '@/styles/colors';
 
 const Wrapper = styled.div`
-	padding: 5.4rem 5% 0;
+	padding: 5.4rem 5vw 0;
 `;
 
 const Container = styled.div`
@@ -209,9 +209,9 @@ const PropertyPage = async ({ params }: PropertyPageProps) => {
 						</Button>
 					</Apply>
 				</BottomWrapper>
-
-				<SimilarProperties baseProperty={property} />
 			</Container>
+
+			<SimilarProperties baseProperty={property} />
 		</Wrapper>
 	);
 };
