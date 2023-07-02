@@ -1,10 +1,9 @@
 import Filters from '@/components/Filters';
 import { NextSearchParams } from '@/types';
 import { styled } from '@linaria/react';
-import { fetcher } from '@/services/fetcher';
 import * as PropertyCard from '@/components/PropertyCard';
-import { getProperties } from '@/services/api';
-import { TaxonomyTerm } from '@/types/taxonomy';
+import { getProperties, getTaxonomyTerms } from '@/services/api';
+import { AmenityTerm, PropertyStatusTerm } from '@/types/taxonomy';
 import breakpoints, { screenMinWidth } from '@/styles/breakpoints';
 import { createInitialFilters, prepareTermsSearchParams } from './helpers';
 
@@ -51,8 +50,8 @@ const Properties = styled.div`
 const SearchPage = async ({ searchParams }: { searchParams?: NextSearchParams }) => {
 	const termsParams = prepareTermsSearchParams(searchParams);
 	const [amenities, propertyStatus, properties] = await Promise.all([
-		fetcher<TaxonomyTerm[]>('/amenities'),
-		fetcher<TaxonomyTerm[]>('/property_status'),
+		getTaxonomyTerms<AmenityTerm[]>('amenities'),
+		getTaxonomyTerms<PropertyStatusTerm[]>('property_status'),
 		getProperties({ params: { ...termsParams, per_page: 10 } }),
 	]);
 

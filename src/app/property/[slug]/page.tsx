@@ -1,4 +1,3 @@
-import { fetcher } from '@/services/fetcher';
 import { styled } from '@linaria/react';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -7,7 +6,6 @@ import { ListChecks } from 'lucide-react';
 import SimilarProperties from '@/components/SimilarProperties';
 import { getProperties } from '@/services/api';
 import AmenityIcon from '@/components/AmenityIcon';
-import { WordpressPropertyPostType } from '@/types/wordpress';
 import Button from '@/components/Button';
 import breakpoints, { screenMinWidth } from '@/styles/breakpoints';
 import ShareButton from '@/components/ShareButton';
@@ -219,7 +217,7 @@ const PropertyPage = async ({ params }: PropertyPageProps) => {
 export default PropertyPage;
 
 export const generateStaticParams = async () => {
-	const properties = await fetcher<WordpressPropertyPostType[]>('/properties?per_page=50');
+	const properties = await getProperties({ params: { per_page: 50 } });
 
 	return properties.map(({ slug }) => ({ slug }));
 };

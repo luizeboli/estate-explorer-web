@@ -1,8 +1,7 @@
 import { FetcherOptions, fetcher } from '@/services/fetcher';
+import { TaxonomyTerm } from '@/types/taxonomy';
 import { WordpressPropertyPostType, WordpressPropertyQueryParams } from '@/types/wordpress';
 import { normalizeWordpressProperties } from '@/utils/wordpress';
-
-export const getTaxonomyTerms = () => {};
 
 type GetPropertiesParams = {
 	params?: WordpressPropertyQueryParams;
@@ -16,4 +15,9 @@ export const getProperties = async ({ params = {}, options = {} }: GetProperties
 	});
 
 	return normalizeWordpressProperties(data);
+};
+
+export const getTaxonomyTerms = async <TTerms = TaxonomyTerm[]>(taxonomy: string) => {
+	const data = await fetcher<TTerms>(`/${taxonomy}`);
+	return data;
 };
