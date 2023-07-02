@@ -10,6 +10,7 @@ import AmenityIcon from '@/components/AmenityIcon';
 import { WordpressPropertyPostType } from '@/types/wordpress';
 import Button from '@/components/Button';
 import breakpoints, { screenMinWidth } from '@/styles/breakpoints';
+import ShareButton from '@/components/ShareButton';
 
 const Wrapper = styled.div`
 	padding: 5.4rem 5% 0;
@@ -115,6 +116,10 @@ const ApplyTitle = styled.p`
 	color: rgb(82 82 82);
 `;
 
+const Social = styled.div`
+	margin-bottom: 1.2rem;
+`;
+
 type PropertyPageProps = {
 	params: {
 		slug: string;
@@ -133,6 +138,10 @@ const PropertyPage = async ({ params }: PropertyPageProps) => {
 			<Container>
 				<Title>{title}</Title>
 				<Location>{location}</Location>
+
+				<Social>
+					<ShareButton />
+				</Social>
 
 				<CoverWrapper>
 					<Image
