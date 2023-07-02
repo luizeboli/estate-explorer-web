@@ -44,7 +44,7 @@ const StyledButton = styled.button<ButtonProps>`
 	background-color: var(--background-color);
 
 	&.outlined {
-		border: 2px solid var(--border-color);
+		border: 1px solid var(--border-color);
 	}
 
 	&:hover:not(:disabled) {
