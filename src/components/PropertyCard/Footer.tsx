@@ -19,6 +19,7 @@ const Amenities = styled.ul`
 
 const Amenity = styled.li`
 	font-size: 1.4rem;
+	flex-shrink: 0;
 	& svg {
 		margin-right: 0.4rem;
 		vertical-align: middle;
