@@ -6,11 +6,11 @@ const nextConfig = {
 	rewrites: async () => [
 		{
 			source: '/wp-api/:path*',
-			destination: `${process.env.WP_HOST}/:path*`,
+			destination: `${process.env.WP_HOST_URL}/:path*`,
 		},
 	],
 	images: {
-		domains: ['placehold.co', 'estate-explorer.local'],
+		domains: ['placehold.co', process.env.WP_IMAGES_HOST],
 	},
 };
 
