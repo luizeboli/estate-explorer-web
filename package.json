@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@linaria/babel-preset": "^4.4.5",
     "@linaria/core": "^4.2.10",
     "@linaria/react": "^4.3.8",
     "@types/node": "20.3.1",
