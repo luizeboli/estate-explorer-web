@@ -175,7 +175,7 @@ const PropertyPage = async ({ params }: PropertyPageProps) => {
 							{property_status.slug === 'for-rent' && <span> /month</span>}
 						</Price>
 
-						<Button startIcon={<ListChecks />} variant="contained" fullWidth>
+						<Button startIcon={<ListChecks />} variant="contained" fullWidth disabled>
 							Apply now
 						</Button>
 					</Apply>
