@@ -10,6 +10,7 @@ import Button from '@/components/Button';
 import breakpoints, { screenMinWidth } from '@/styles/breakpoints';
 import ShareButton from '@/components/ShareButton';
 import colors from '@/styles/colors';
+import { Metadata } from 'next';
 
 const Wrapper = styled.div`
 	padding: 5.4rem 5vw 0;
@@ -220,4 +221,24 @@ export const generateStaticParams = async () => {
 	const properties = await getProperties({ params: { per_page: 50 } });
 
 	return properties.map(({ slug }) => ({ slug }));
+};
+
+type GenerateMetadataProps = {
+	params: { slug: string };
+};
+
+export const generateMetadata = async ({ params }: GenerateMetadataProps): Promise<Metadata> => {
+	const { slug } = params;
+	const [property] = await getProperties({ params: { slug } });
+	if (!property) return {};
+
+	const { title, description, cover } = property;
+
+	return {
+		title,
+		description: description.slice(0, 100),
+		openGraph: {
+			images: [cover ?? ''],
+		},
+	};
 };
