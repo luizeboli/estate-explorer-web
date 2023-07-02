@@ -5,7 +5,7 @@ import { fetcher } from '@/services/fetcher';
 import * as PropertyCard from '@/components/PropertyCard';
 import { getProperties } from '@/services/api';
 import { TaxonomyTerm } from '@/types/taxonomy';
-import { screenMinWidth } from '@/styles/breakpoints';
+import breakpoints, { screenMinWidth } from '@/styles/breakpoints';
 import { createInitialFilters, prepareTermsSearchParams } from './helpers';
 
 const Wrapper = styled.div`
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-	max-width: 1440px;
+	max-width: ${breakpoints.lg}px;
 	margin: 0 auto;
 `;
 

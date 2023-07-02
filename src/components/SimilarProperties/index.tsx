@@ -3,6 +3,7 @@
 import * as PropertyCard from '@/components/PropertyCard';
 import Spinner from '@/components/Spinner';
 import useSimilarProperties from '@/hooks/useSimilarProperties';
+import breakpoints from '@/styles/breakpoints';
 import { Property } from '@/types';
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
@@ -29,7 +30,7 @@ const Title = styled.h3`
 `;
 
 const Container = styled.div`
-	max-width: 1440px;
+	max-width: ${breakpoints.lg}px;
 	margin: 0 auto;
 `;
 

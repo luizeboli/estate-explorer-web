@@ -9,14 +9,14 @@ import { getProperties } from '@/services/api';
 import AmenityIcon from '@/components/AmenityIcon';
 import { WordpressPropertyPostType } from '@/types/wordpress';
 import Button from '@/components/Button';
-import { screenMinWidth } from '@/styles/breakpoints';
+import breakpoints, { screenMinWidth } from '@/styles/breakpoints';
 
 const Wrapper = styled.div`
 	padding: 5.4rem 5% 0;
 `;
 
 const Container = styled.div`
-	max-width: 1440px;
+	max-width: ${breakpoints.lg}px;
 	margin: 0 auto;
 `;
 

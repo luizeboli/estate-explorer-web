@@ -1,5 +1,5 @@
 import * as PropertyCard from '@/components/PropertyCard';
-import { screenMinWidth } from '@/styles/breakpoints';
+import breakpoints, { screenMinWidth } from '@/styles/breakpoints';
 import { Property } from '@/types';
 import { styled } from '@linaria/react';
 
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 	}
 
 	${screenMinWidth('md')} {
-		max-width: 1440px;
+		max-width: ${breakpoints.lg}px;
 	}
 `;
 

@@ -1,5 +1,6 @@
 'use client';
 
+import breakpoints from '@/styles/breakpoints';
 import { css, cx } from '@linaria/core';
 import { styled } from '@linaria/react';
 import { HomeIcon } from 'lucide-react';
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
 	width: 100%;
-	max-width: 1440px;
+	max-width: ${breakpoints.lg}px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
