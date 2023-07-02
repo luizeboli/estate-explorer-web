@@ -8,7 +8,8 @@ const imageWrapper = css`
 	display: flex;
 	position: relative;
 	overflow: hidden;
-	border-radius: 0.6rem;
+	border-top-left-radius: 0.6rem;
+	border-top-right-radius: 0.6rem;
 `;
 
 const PropertyCover = () => {
