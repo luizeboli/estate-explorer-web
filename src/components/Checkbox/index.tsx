@@ -1,5 +1,6 @@
 'use client';
 
+import colors from '@/styles/colors';
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 import { InputHTMLAttributes, useId } from 'react';
@@ -11,7 +12,7 @@ const Marker = styled.div`
 	width: 2rem;
 	height: 2rem;
 	border-radius: 0.4rem;
-	background-color: rgb(229 229 229);
+	background-color: ${colors.neutral[200]};
 
 	&::after {
 		content: '';
@@ -34,13 +35,13 @@ const Input = styled.input`
 	height: 0;
 
 	&:focus + ${Marker} {
-		outline: 1px solid rgb(168 85 247);
+		outline: 1px solid ${colors.purple[500]};
 		outline-offset: 2px;
 		outline-width: 2px;
 	}
 
 	&:checked + ${Marker} {
-		background-color: rgb(168 85 247);
+		background-color: ${colors.purple[500]};
 		&::after {
 			display: block;
 		}
@@ -55,11 +56,11 @@ const labelClassName = css`
 
 	&:hover {
 		${Marker} {
-			background-color: rgb(212 212 212);
+			background-color: ${colors.neutral[300]};
 		}
 
 		& ${Input}:checked + ${Marker} {
-			background-color: rgb(126 34 206);
+			background-color: ${colors.purple[700]};
 		}
 	}
 `;

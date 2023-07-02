@@ -2,6 +2,7 @@ import { useWishlistContext } from '@/components/WishlistProvider/context';
 import { styled } from '@linaria/react';
 import { Heart } from 'lucide-react';
 import IconButton from '@/components/IconButton';
+import colors from '@/styles/colors';
 import { usePropertyContext } from './context';
 
 type StyledIconButtonProps = {
@@ -10,8 +11,8 @@ type StyledIconButtonProps = {
 
 const StyledIconButton = styled(IconButton)<StyledIconButtonProps>`
 	& svg {
-		fill: ${({ isWishlisted }) => (isWishlisted ? 'rgb(168 85 247)' : 'none')};
-		color: rgb(168 85 247);
+		fill: ${({ isWishlisted }) => (isWishlisted ? colors.purple[500] : 'none')};
+		color: ${colors.purple[500]};
 	}
 `;
 

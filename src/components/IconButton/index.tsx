@@ -1,3 +1,4 @@
+import colors from '@/styles/colors';
 import { styled } from '@linaria/react';
 
 const Button = styled.button`
@@ -12,7 +13,7 @@ const Button = styled.button`
 	height: 4rem;
 
 	&:focus {
-		outline: 1px solid rgb(168 85 247);
+		outline: 1px solid ${colors.purple[500]};
 	}
 `;
 

@@ -1,6 +1,7 @@
 'use client';
 
 import breakpoints from '@/styles/breakpoints';
+import colors from '@/styles/colors';
 import { css, cx } from '@linaria/core';
 import { styled } from '@linaria/react';
 import { HomeIcon } from 'lucide-react';
@@ -9,7 +10,7 @@ import { usePathname } from 'next/navigation';
 
 const Wrapper = styled.div`
 	background-color: #fff;
-	border-bottom: 1px solid #d4d4d8;
+	border-bottom: 1px solid ${colors.zinc[300]};
 
 	filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
 	position: sticky;
@@ -42,7 +43,7 @@ const menuItem = css`
 		width: 100%;
 		height: 3px;
 		transition: opacity 0.2s ease-in-out;
-		background-color: rgb(168 85 247);
+		background-color: ${colors.purple[500]};
 		opacity: 0;
 	}
 
@@ -52,8 +53,8 @@ const menuItem = css`
 `;
 
 const activeLink = css`
-	background-color: rgb(243 232 255);
-	color: rgb(147 51 234);
+	background-color: ${colors.purple[100]};
+	color: ${colors.purple[600]};
 `;
 
 const Navbar = () => {

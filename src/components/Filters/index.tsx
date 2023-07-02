@@ -6,6 +6,7 @@ import { useMemo, useState } from 'react';
 import { TaxonomyTerm } from '@/types/taxonomy';
 import Button from '@/components/Button';
 import { screenMinWidth } from '@/styles/breakpoints';
+import colors from '@/styles/colors';
 import { FilterState } from './types';
 import TaxonomyFilter from './TaxonomyFilter';
 import { buildSearchQueryString } from './helpers';
@@ -24,7 +25,7 @@ const Wrapper = styled.div`
 const Container = styled.ul`
 	display: flex;
 	background-color: #fff;
-	border: 1px solid #d4d4d8;
+	border: 1px solid ${colors.zinc[300]};
 	border-radius: 0.6rem;
 	padding: 1.6rem 2.4rem;
 

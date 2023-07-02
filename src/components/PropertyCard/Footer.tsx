@@ -2,13 +2,14 @@
 
 import { styled } from '@linaria/react';
 import AmenityIcon from '@/components/AmenityIcon';
+import colors from '@/styles/colors';
 import { usePropertyContext } from './context';
 
 const Wrapper = styled.div`
 	display: flex;
 	margin: 0 1.4rem 1.6rem;
 	padding-top: 1.2rem;
-	border-top: 1px solid rgb(229 229 229);
+	border-top: 1px solid ${colors.neutral[200]};
 `;
 
 const Amenities = styled.ul`
@@ -21,7 +22,7 @@ const Amenity = styled.li`
 	& svg {
 		margin-right: 0.4rem;
 		vertical-align: middle;
-		color: rgb(192 132 252);
+		color: ${colors.purple[400]};
 	}
 `;
 

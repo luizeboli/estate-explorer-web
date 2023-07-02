@@ -1,3 +1,4 @@
+import colors from '@/styles/colors';
 import { styled } from '@linaria/react';
 import Link from 'next/link';
 
@@ -11,7 +12,7 @@ const Container = styled.div`
 	a {
 		display: block;
 		margin-top: 1.2rem;
-		color: rgb(168 85 247);
+		color: ${colors.purple[500]};
 		font-weight: 500;
 	}
 `;

@@ -6,6 +6,7 @@ import { styled } from '@linaria/react';
 import Button from '@/components/Button';
 import { screenMinWidth } from '@/styles/breakpoints';
 import Link from 'next/link';
+import colors from '@/styles/colors';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -21,14 +22,14 @@ const ContentButtons = styled.div`
 	justify-content: center;
 	width: 100%;
 
-	border: 1px solid #d4d4d8;
+	border: 1px solid ${colors.zinc[300]};
 	border-radius: 0.4rem;
 	padding: 0.8rem;
 	margin-bottom: 3.2rem;
 
 	gap: 1.2rem;
 
-	background-color: rgb(245 245 245);
+	background-color: ${colors.neutral[100]};
 `;
 
 const TabPanel = styled.div`

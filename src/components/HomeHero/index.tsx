@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import HeroImg from '@/assets/hero-header.png';
 import { styled } from '@linaria/react';
+import colors from '@/styles/colors';
 
 const Wrapper = styled.section`
 	position: relative;
@@ -66,7 +67,7 @@ const PropertiesData = styled.div`
 
 const PropertiesDataItem = styled.div`
 	padding-left: 1.2rem;
-	border-left: 1px solid #d4d4d8;
+	border-left: 1px solid ${colors.zinc[300]};
 
 	& p:first-child {
 		font-size: 2.4rem;
@@ -77,7 +78,7 @@ const PropertiesDataItem = styled.div`
 	& p:last-child {
 		font-size: 1.2rem;
 		font-weight: 300;
-		color: #d4d4d8;
+		color: ${colors.zinc[300]};
 	}
 `;
 

@@ -8,6 +8,7 @@ import AppProviders from '@/components/AppProviders';
 import ProgressBar from '@/components/ProgressBar';
 import 'nprogress/nprogress.css';
 import '@/styles/global.css';
+import colors from '@/styles/colors';
 
 export const metadata: Metadata = {
 	title: 'Estate Explorer',
@@ -20,7 +21,7 @@ const inter = Inter({ subsets: ['latin'] });
 const body = css`
 	display: flex;
 	flex-direction: column;
-	background-color: rgb(250 250 250);
+	background-color: ${colors.neutral[50]};
 `;
 
 const ScrollableContainer = styled.div`

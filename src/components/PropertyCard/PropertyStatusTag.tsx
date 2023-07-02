@@ -1,5 +1,6 @@
 import { screenMinWidth } from '@/styles/breakpoints';
 import { styled } from '@linaria/react';
+import colors from '@/styles/colors';
 import { usePropertyContext } from './context';
 
 const Wrapper = styled.div`
@@ -12,7 +13,7 @@ const Wrapper = styled.div`
 	padding: 0.8rem 1.2rem;
 
 	color: #fff;
-	background-color: rgb(168 85 247);
+	background-color: ${colors.purple[500]};
 
 	&:before {
 		content: '';
@@ -27,8 +28,8 @@ const Wrapper = styled.div`
 		border-right-width: 2rem;
 
 		${screenMinWidth('sm')} {
-			border-right-color: rgb(126 34 206);
-			border-top-color: rgb(126 34 206);
+			border-right-color: ${colors.purple[700]};
+			border-top-color: ${colors.purple[700]};
 		}
 	}
 

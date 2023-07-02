@@ -4,6 +4,7 @@ import CardImg from '@/assets/home-card.jpg';
 import HomeTabs from '@/components/HomeTabs';
 import { styled } from '@linaria/react';
 import { screenMinWidth } from '@/styles/breakpoints';
+import colors from '@/styles/colors';
 
 const Wrapper = styled.section`
 	display: flex;
@@ -43,10 +44,10 @@ const PanelImageTip = styled.div`
 	align-items: center;
 	gap: 1.2rem;
 
-	border: 1px solid #d4d4d8;
+	border: 1px solid ${colors.zinc[300]};
 
 	& svg {
-		color: rgb(168 85 247);
+		color: ${colors.purple[500]};
 	}
 
 	& p {

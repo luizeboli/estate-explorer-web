@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react';
 import dynamic from 'next/dynamic';
 import Spinner from '@/components/Spinner';
+import colors from '@/styles/colors';
 import { usePropertyContext } from './context';
 
 const Wrapper = styled.div`
@@ -21,13 +22,13 @@ const PriceTitleWrapper = styled.div`
 const Price = styled.p`
 	font-size: 1.4rem;
 	font-weight: 700;
-	color: rgb(147 51 234);
+	color: ${colors.purple[600]};
 	margin-bottom: 1.4rem;
 
 	& span {
 		font-size: 1.2rem;
 		font-weight: 400;
-		color: rgb(82 82 82);
+		color: ${colors.neutral[600]};
 	}
 `;
 
@@ -41,7 +42,7 @@ const Title = styled.p`
 
 const Location = styled.p`
 	font-size: 1.2rem;
-	color: rgb(115 115 115);
+	color: ${colors.neutral[500]};
 
 	white-space: nowrap;
 	overflow: hidden;

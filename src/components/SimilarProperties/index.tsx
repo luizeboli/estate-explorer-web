@@ -4,6 +4,7 @@ import * as PropertyCard from '@/components/PropertyCard';
 import Spinner from '@/components/Spinner';
 import useSimilarProperties from '@/hooks/useSimilarProperties';
 import breakpoints from '@/styles/breakpoints';
+import colors from '@/styles/colors';
 import { Property } from '@/types';
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
@@ -13,7 +14,7 @@ type SimilarPropertiesProps = {
 };
 
 const Wrapper = styled.div`
-	background-color: rgb(243 232 255);
+	background-color: ${colors.purple[100]};
 	margin: 6.2rem -5% 0;
 	padding: 4rem 5%;
 `;
@@ -42,7 +43,7 @@ const List = styled.ul`
 `;
 
 const spinner = css`
-	color: rgb(168 85 247);
+	color: ${colors.purple[500]};
 `;
 
 const SimilarProperties = ({ baseProperty }: SimilarPropertiesProps) => {

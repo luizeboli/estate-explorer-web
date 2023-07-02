@@ -1,5 +1,6 @@
 import * as PropertyCard from '@/components/PropertyCard';
 import breakpoints, { screenMinWidth } from '@/styles/breakpoints';
+import colors from '@/styles/colors';
 import { Property } from '@/types';
 import { styled } from '@linaria/react';
 
@@ -29,7 +30,7 @@ const Title = styled.h2`
 		bottom: 0;
 		width: 10.5rem;
 		height: 0.2rem;
-		background-color: rgb(168 85 247);
+		background-color: ${colors.purple[500]};
 	}
 `;
 

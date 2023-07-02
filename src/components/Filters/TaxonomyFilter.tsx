@@ -1,5 +1,6 @@
 import Checkbox from '@/components/Checkbox';
 import { screenMinWidth } from '@/styles/breakpoints';
+import colors from '@/styles/colors';
 import { TaxonomyTerm } from '@/types/taxonomy';
 import { styled } from '@linaria/react';
 
@@ -11,11 +12,11 @@ const Wrapper = styled.li`
 	flex-grow: 1;
 
 	:not(:last-child) {
-		border-right: 1px solid #d4d4d8;
+		border-right: 1px solid ${colors.zinc[300]};
 
 		${screenMinWidth('xmd')} {
 			border-right: none;
-			border-bottom: 1px solid #d4d4d8;
+			border-bottom: 1px solid ${colors.zinc[300]};
 			padding-bottom: 2.4rem;
 		}
 	}

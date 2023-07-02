@@ -2,6 +2,7 @@
 
 import { styled } from '@linaria/react';
 import { Property } from '@/types';
+import colors from '@/styles/colors';
 import { PropertyContext } from './context';
 
 const Wrapper = styled.div`
@@ -9,7 +10,7 @@ const Wrapper = styled.div`
 	position: relative;
 
 	border-radius: 0.6rem;
-	border: 1px solid rgb(229 229 229);
+	border: 1px solid ${colors.neutral[200]};
 
 	background-color: #fff;
 `;

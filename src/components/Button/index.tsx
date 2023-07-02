@@ -1,28 +1,29 @@
+import themeColors from '@/styles/colors';
 import { css, cx } from '@linaria/core';
 import { styled } from '@linaria/react';
 
 const colors = {
 	primary: css`
 		&.text {
-			--color: rgb(126 34 206);
+			--color: ${themeColors.purple[700]};
 			--background-color: transparent;
-			--background-color-hover: rgb(243 232 255);
-			--outline-color-focus: rgb(126 34 206);
+			--background-color-hover: ${themeColors.purple[100]};
+			--outline-color-focus: ${themeColors.purple[700]};
 		}
 
 		&.contained {
 			--color: #fff;
-			--background-color: rgb(168 85 247);
-			--background-color-hover: rgb(126 34 206);
-			--outline-color-focus: rgb(168 85 247);
+			--background-color: ${themeColors.purple[500]};
+			--background-color-hover: ${themeColors.purple[700]};
+			--outline-color-focus: ${themeColors.purple[500]};
 			--box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 		}
 
 		&.outlined {
-			--color: rgb(168 85 247);
-			--background-color-hover: rgb(243 232 255);
-			--outline-color-focus: rgb(126 34 206);
-			--border-color: rgb(168 85 247);
+			--color: ${themeColors.purple[500]};
+			--background-color-hover: ${themeColors.purple[100]};
+			--outline-color-focus: ${themeColors.purple[700]};
+			--border-color: ${themeColors.purple[500]};
 		}
 	`,
 	secondary: css``,

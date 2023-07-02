@@ -11,6 +11,7 @@ import { WordpressPropertyPostType } from '@/types/wordpress';
 import Button from '@/components/Button';
 import breakpoints, { screenMinWidth } from '@/styles/breakpoints';
 import ShareButton from '@/components/ShareButton';
+import colors from '@/styles/colors';
 
 const Wrapper = styled.div`
 	padding: 5.4rem 5% 0;
@@ -27,7 +28,7 @@ const Title = styled.h1`
 
 const Location = styled.p`
 	font-size: 1.6rem;
-	color: rgb(115 115 115);
+	color: ${colors.neutral[500]};
 	margin-bottom: 1.4rem;
 `;
 
@@ -56,7 +57,7 @@ const Amenities = styled.ul`
 	flex-wrap: wrap;
 	gap: 1.2rem;
 	padding: 1.2rem;
-	border: 1px solid #d4d4d8;
+	border: 1px solid ${colors.zinc[300]};
 	border-radius: 0.4rem;
 	max-width: fit-content;
 	margin-bottom: 2.4rem;
@@ -64,17 +65,17 @@ const Amenities = styled.ul`
 
 const AmenityItem = styled.li`
 	font-size: 1.4rem;
-	color: rgb(115 115 115);
+	color: ${colors.neutral[500]};
 
 	& svg {
 		margin-right: 0.4rem;
-		color: rgb(126 34 206);
+		color: ${colors.purple[700]};
 		vertical-align: middle;
 	}
 `;
 
 const Apply = styled.div`
-	border: 1px solid #d4d4d8;
+	border: 1px solid ${colors.zinc[300]};
 	border-radius: 0.4rem;
 	padding: 1.2rem;
 	width: 100%;
@@ -89,13 +90,13 @@ const Apply = styled.div`
 const Price = styled.p`
 	font-size: 1.4rem;
 	font-weight: 700;
-	color: rgb(147 51 234);
+	color: ${colors.purple[600]};
 	margin-bottom: 1.4rem;
 
 	& span {
 		font-size: 1.2rem;
 		font-weight: 400;
-		color: rgb(82 82 82);
+		color: ${colors.neutral[600]};
 	}
 `;
 
@@ -112,7 +113,7 @@ const BottomWrapper = styled.div`
 const ApplyTitle = styled.p`
 	font-size: 1.4rem;
 	margin-bottom: 0.8rem;
-	color: rgb(82 82 82);
+	color: ${colors.neutral[600]};
 `;
 
 const Social = styled.div`
@@ -130,7 +131,7 @@ const Header = styled.div`
 const PropertyStatusTitle = styled.p`
 	font-size: 1.6rem;
 	color: #fff;
-	background-color: rgb(168 85 247);
+	background-color: ${colors.purple[500]};
 	padding: 0.4rem 0.8rem;
 	border-radius: 1.4rem;
 `;
