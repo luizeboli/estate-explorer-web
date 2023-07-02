@@ -89,9 +89,9 @@ const Button = ({
 
 	return (
 		<StyledButton
+			type={type}
 			// eslint-disable-next-line react/jsx-props-no-spreading
 			{...buttonProps}
-			type={type}
 			color={color}
 			variant={variant}
 			className={cx(colorStyles, variant)}
