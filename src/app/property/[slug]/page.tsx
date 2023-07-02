@@ -23,7 +23,6 @@ const Container = styled.div`
 
 const Title = styled.h1`
 	font-size: 2.4rem;
-	margin-bottom: 0.8rem;
 `;
 
 const Location = styled.p`
@@ -120,6 +119,22 @@ const Social = styled.div`
 	margin-bottom: 1.2rem;
 `;
 
+const Header = styled.div`
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 1.6rem;
+	margin-bottom: 0.8rem;
+`;
+
+const PropertyStatusTitle = styled.p`
+	font-size: 1.6rem;
+	color: #fff;
+	background-color: rgb(168 85 247);
+	padding: 0.4rem 0.8rem;
+	border-radius: 1.4rem;
+`;
+
 type PropertyPageProps = {
 	params: {
 		slug: string;
@@ -136,7 +151,11 @@ const PropertyPage = async ({ params }: PropertyPageProps) => {
 	return (
 		<Wrapper>
 			<Container>
-				<Title>{title}</Title>
+				<Header>
+					<Title>{title}</Title>
+					<PropertyStatusTitle>{property_status.name}</PropertyStatusTitle>
+				</Header>
+
 				<Location>{location}</Location>
 
 				<Social>
