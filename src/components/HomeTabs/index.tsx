@@ -90,11 +90,14 @@ const HomeTabs = () => {
 				</p>
 			</TabPanel>
 
-			<Link href="/search">
-				<Button variant="contained" endIcon={<ChevronRight size={20} />}>
-					See properties
-				</Button>
-			</Link>
+			<Button
+				variant="contained"
+				endIcon={<ChevronRight size={20} />}
+				as={Link}
+				href="/search"
+			>
+				See properties
+			</Button>
 		</Wrapper>
 	);
 };

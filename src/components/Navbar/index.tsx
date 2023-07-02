@@ -1,5 +1,6 @@
 'use client';
 
+import IconButton from '@/components/IconButton';
 import breakpoints from '@/styles/breakpoints';
 import colors from '@/styles/colors';
 import { css, cx } from '@linaria/core';
@@ -63,9 +64,9 @@ const Navbar = () => {
 	return (
 		<Wrapper>
 			<Container>
-				<Link href="/" aria-label="Go to home">
+				<IconButton as={Link} href="/" aria-label="Go to home">
 					<HomeIcon size={20} strokeWidth={2} />
-				</Link>
+				</IconButton>
 
 				<Link
 					href="/search"

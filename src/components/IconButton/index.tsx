@@ -17,9 +17,17 @@ const Button = styled.button`
 	}
 `;
 
-type IconButtonProps = Partial<{}> & React.ButtonHTMLAttributes<HTMLButtonElement>;
+type IconButtonProps<C extends React.ElementType = React.ElementType> = Partial<{
+	as: C;
+}> &
+	React.ButtonHTMLAttributes<HTMLButtonElement> &
+	Omit<React.ComponentPropsWithRef<C>, 'as'>;
 
-const IconButton = ({ children, type = 'button', ...buttonProps }: IconButtonProps) => {
+const IconButton = <C extends React.ElementType>({
+	children,
+	type = 'button',
+	...buttonProps
+}: IconButtonProps<C>) => {
 	return (
 		// eslint-disable-next-line react/jsx-props-no-spreading
 		<Button type={type} {...buttonProps}>

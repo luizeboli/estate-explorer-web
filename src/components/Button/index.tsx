@@ -67,17 +67,19 @@ type ButtonVariant = 'contained' | 'text' | 'outlined';
 
 type ButtonColor = 'primary' | 'secondary';
 
-type ButtonProps = Partial<{
+type ButtonProps<C extends React.ElementType = React.ElementType> = Partial<{
 	variant: ButtonVariant;
 	color: ButtonColor;
 	startIcon: React.ReactNode;
 	endIcon: React.ReactNode;
 	disableElevation: boolean;
 	fullWidth: boolean;
+	as: C;
 }> &
-	React.ButtonHTMLAttributes<HTMLButtonElement>;
+	React.ButtonHTMLAttributes<HTMLButtonElement> &
+	Omit<React.ComponentPropsWithRef<C>, 'as'>;
 
-const Button = ({
+const Button = <C extends React.ElementType>({
 	children,
 	type = 'button',
 	variant = 'text',
@@ -85,7 +87,7 @@ const Button = ({
 	startIcon = null,
 	endIcon = null,
 	...buttonProps
-}: ButtonProps) => {
+}: ButtonProps<C>) => {
 	const colorStyles = colors[color];
 
 	return (
