@@ -6,6 +6,6 @@
   ],
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["./src/tests/setup.ts", "**/*.spec.{ts,tsx}"]  }]
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["./src/tests/*.{ts,tsx}", "**/*.spec.{ts,tsx}"]  }]
   }
 }
