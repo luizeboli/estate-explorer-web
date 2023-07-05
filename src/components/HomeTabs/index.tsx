@@ -71,23 +71,32 @@ const HomeTabs = () => {
 			</ContentButtons>
 
 			<TabPanel role="tabpanel" hidden={activePanel !== 0}>
-				<h2>Your gateway to dream rentals</h2>
-				<p>
-					Our app provides a seamless and user-friendly experience, ensuring that you can
-					find your dream rental effortlessly. From cozy apartments to spacious houses, we
-					have a diverse range of properties to suit every lifestyle. Start your journey
-					today and discover your ideal rental home with us.
-				</p>
+				{activePanel === 0 && (
+					<>
+						<h2>Your gateway to dream rentals</h2>
+						<p>
+							Our app provides a seamless and user-friendly experience, ensuring that
+							you can find your dream rental effortlessly. From cozy apartments to
+							spacious houses, we have a diverse range of properties to suit every
+							lifestyle. Start your journey today and discover your ideal rental home
+							with us.
+						</p>
+					</>
+				)}
 			</TabPanel>
 
 			<TabPanel role="tabpanel" hidden={activePanel !== 1}>
-				<h2>Unlock your dream home</h2>
-				<p>
-					Ready to make that long-awaited leap into homeownership? Our app is your key to
-					unlocking your dream home. Explore a wide range of properties for sale, from
-					charming starter homes to luxurious estates, all conveniently categorized to
-					suit your preferences.
-				</p>
+				{activePanel === 1 && (
+					<>
+						<h2>Unlock your dream home</h2>
+						<p>
+							Ready to make that long-awaited leap into homeownership? Our app is your
+							key to unlocking your dream home. Explore a wide range of properties for
+							sale, from charming starter homes to luxurious estates, all conveniently
+							categorized to suit your preferences.
+						</p>
+					</>
+				)}
 			</TabPanel>
 
 			<Button
