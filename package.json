@@ -10,7 +10,8 @@
     "prepare": "husky install",
     "typecheck": "tsc --noEmit",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@linaria/babel-preset": "^4.4.5",

@@ -11,6 +11,12 @@ const config: Config = {
 	restoreMocks: true,
 	setupFilesAfterEnv: ['<rootDir>/src/tests/setup.ts'],
 	watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
+	collectCoverageFrom: [
+		'src/**/*.{ts,tsx}',
+		'!src/**/*.d.ts',
+		'!src/tests/**/*',
+		'!src/app/**/*',
+	],
 };
 
 export default createJestConfig(config);
