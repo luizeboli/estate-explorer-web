@@ -39,7 +39,7 @@ const useLocalStorage = <TInitialState = any>(
 	);
 
 	/*
-	 * The purpose of this effect is to run after the hydration phase is done.
+	 * The purpose of this effect is to run during the hydration phase.
 	 * So consumers of this hook recalculate side effects based on the state.
 	 */
 	useEffect(() => {
