@@ -35,13 +35,13 @@ const Container = styled.ul`
 	}
 `;
 
-type FiltersProps = {
+export type FiltersProps = {
 	amenities: AmenityTerm[];
 	propertyStatus: PropertyStatusTerm[];
 	initialFilters: FilterState;
 };
 
-const freshFiltersState: FilterState = {
+export const freshFiltersState: FilterState = {
 	amenities: {
 		gym: false,
 		parking: false,
@@ -66,7 +66,14 @@ const Filters = ({ amenities, propertyStatus, initialFilters }: FiltersProps) =>
 
 	const pushNewQuery = (newFilters: FilterState) => {
 		const query = buildSearchQueryString(newFilters);
-		router.push(`${pathname}?${decodeURIComponent(query.toString())}`);
+		const queryString = query.toString();
+
+		if (!queryString) {
+			router.push(pathname);
+			return;
+		}
+
+		router.push(`${pathname}?${decodeURIComponent(queryString)}`);
 	};
 
 	const updateFilters = (taxonomy: keyof FilterState) => (slug: string, value: boolean) => {
