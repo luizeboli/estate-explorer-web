@@ -4,7 +4,7 @@ Welcome to the frontend of the Estate Explorer app. This is a proof of concept f
 
 ## Technologies
 
-This project is built using [NextJs](https://github.com/vercel/next.js/) with the new stable app folder.
+This project has been developed using [NextJs](https://github.com/vercel/next.js/) with the new stable app folder.
 
 For the styling solution I chose [Linaria](https://github.com/callstack/linaria), which is a zero runtime css in js solution. Unfortunately theres no official support for the NextJs framework, so I had to use the third party library [next-with-linaria](https://github.com/dlehmhus/next-with-linaria). 
 
