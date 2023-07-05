@@ -9,6 +9,7 @@ import '@/styles/styles.linaria.global';
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
+	metadataBase: new URL('https://estate-explorer.felicio.dev'),
 	title: 'Estate Explorer',
 	description: 'The best place to find your new home',
 	viewport: 'width=device-width, initial-scale=1',
