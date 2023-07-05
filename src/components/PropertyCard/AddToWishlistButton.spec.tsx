@@ -1,5 +1,5 @@
 import { render, screen } from '@/tests/utils';
-import { Property } from '@/types';
+import type { Property } from '@/types';
 import userEvent from '@testing-library/user-event';
 import colors from '@/styles/colors';
 import * as PropertyCard from '.';

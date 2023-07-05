@@ -1,6 +1,7 @@
-import { FetcherOptions, fetcher } from '@/services/fetcher';
-import { TaxonomyTerm } from '@/types/taxonomy';
-import { WordpressPropertyPostType, WordpressPropertyQueryParams } from '@/types/wordpress';
+import type { FetcherOptions } from '@/services/fetcher';
+import { fetcher } from '@/services/fetcher';
+import type { TaxonomyTerm } from '@/types/taxonomy';
+import type { WordpressPropertyPostType, WordpressPropertyQueryParams } from '@/types/wordpress';
 import { normalizeWordpressProperties } from '@/utils/wordpress';
 
 type GetPropertiesParams = {

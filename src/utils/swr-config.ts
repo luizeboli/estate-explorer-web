@@ -1,4 +1,4 @@
-import { PublicConfiguration } from 'swr/_internal';
+import type { PublicConfiguration } from 'swr/_internal';
 
 const swrConfig: Partial<PublicConfiguration> = {
 	revalidateOnFocus: false,

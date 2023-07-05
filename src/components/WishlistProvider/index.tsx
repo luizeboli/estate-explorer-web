@@ -2,7 +2,8 @@
 
 import useLocalStorage from '@/hooks/useLocalStorage';
 import { useCallback, useMemo } from 'react';
-import { TWishlistContext, WishlistContext } from './context';
+import type { TWishlistContext } from './context';
+import { WishlistContext } from './context';
 
 type WishlistProviderProps = React.PropsWithChildren<{}>;
 

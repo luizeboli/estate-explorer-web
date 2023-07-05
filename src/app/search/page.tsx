@@ -1,9 +1,9 @@
 import Filters from '@/components/Filters';
-import { NextSearchParams } from '@/types';
+import type { NextSearchParams } from '@/types';
 import { styled } from '@linaria/react';
 import * as PropertyCard from '@/components/PropertyCard';
 import { getProperties, getTaxonomyTerms } from '@/services/api';
-import { AmenityTerm, PropertyStatusTerm } from '@/types/taxonomy';
+import type { AmenityTerm, PropertyStatusTerm } from '@/types/taxonomy';
 import breakpoints, { screenMinWidth } from '@/styles/breakpoints';
 import { createInitialFilters, prepareTermsSearchParams } from './helpers';
 

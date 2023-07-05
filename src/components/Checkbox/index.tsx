@@ -3,7 +3,8 @@
 import colors from '@/styles/colors';
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
-import { InputHTMLAttributes, useId } from 'react';
+import type { InputHTMLAttributes } from 'react';
+import { useId } from 'react';
 
 type CheckboxProps = { label: string } & Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'id'>;
 

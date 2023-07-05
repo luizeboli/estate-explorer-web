@@ -1,4 +1,4 @@
-import { TaxonomiesSlugs, TaxonomyTitle } from '@/types/taxonomy';
+import type { TaxonomiesSlugs, TaxonomyTitle } from '@/types/taxonomy';
 
 export type FilterState = {
 	[Title in TaxonomyTitle]: {

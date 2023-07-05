@@ -1,5 +1,5 @@
 import { render } from '@/tests/utils';
-import { AmenityTermSlug } from '@/types/taxonomy';
+import type { AmenityTermSlug } from '@/types/taxonomy';
 import AmenityIcon from '.';
 
 describe('<AmenityIcon />', () => {

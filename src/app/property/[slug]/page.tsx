@@ -10,7 +10,7 @@ import Button from '@/components/Button';
 import breakpoints, { screenMinWidth } from '@/styles/breakpoints';
 import ShareButton from '@/components/ShareButton';
 import colors from '@/styles/colors';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 const Wrapper = styled.div`
 	padding: 5.4rem 5vw 0;

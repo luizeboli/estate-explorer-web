@@ -2,7 +2,8 @@
 import { render, screen } from '@/tests/utils';
 import userEvent from '@testing-library/user-event';
 import * as router from 'next/navigation';
-import Filters, { FiltersProps, freshFiltersState } from '.';
+import type { FiltersProps } from '.';
+import Filters, { freshFiltersState } from '.';
 
 jest.mock('next/navigation');
 

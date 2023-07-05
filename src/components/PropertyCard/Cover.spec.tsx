@@ -1,5 +1,5 @@
 import { render, screen } from '@/tests/utils';
-import { Property } from '@/types';
+import type { Property } from '@/types';
 import * as PropertyCard from '.';
 
 describe('<PropertyCard.Cover />', () => {

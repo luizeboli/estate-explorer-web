@@ -1,7 +1,7 @@
 import Checkbox from '@/components/Checkbox';
 import { screenMinWidth } from '@/styles/breakpoints';
 import colors from '@/styles/colors';
-import { TaxonomyTerm } from '@/types/taxonomy';
+import type { TaxonomyTerm } from '@/types/taxonomy';
 import { styled } from '@linaria/react';
 
 const Wrapper = styled.li`

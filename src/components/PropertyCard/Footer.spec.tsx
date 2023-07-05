@@ -1,6 +1,6 @@
 import { render, screen } from '@/tests/utils';
-import { Property } from '@/types';
-import { AmenityTerm } from '@/types/taxonomy';
+import type { Property } from '@/types';
+import type { AmenityTerm } from '@/types/taxonomy';
 import * as PropertyCard from '.';
 
 describe('<PropertyCard.Footer />', () => {

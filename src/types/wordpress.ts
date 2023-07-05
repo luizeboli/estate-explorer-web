@@ -1,4 +1,4 @@
-import { Taxonomy, TaxonomyTitleSlug } from '@/types/taxonomy';
+import type { Taxonomy, TaxonomyTitleSlug } from '@/types/taxonomy';
 
 export type WordpressPropertyPostType = {
 	id: number;

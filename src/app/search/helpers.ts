@@ -1,7 +1,7 @@
-import { FilterState } from '@/components/Filters/types';
-import { NextSearchParams } from '@/types';
-import { TaxonomyTerm, TaxonomyTitle, TaxonomyTitleSlug } from '@/types/taxonomy';
-import { WordpressPropertyTermsQueryParams } from '@/types/wordpress';
+import type { FilterState } from '@/components/Filters/types';
+import type { NextSearchParams } from '@/types';
+import type { TaxonomyTerm, TaxonomyTitle, TaxonomyTitleSlug } from '@/types/taxonomy';
+import type { WordpressPropertyTermsQueryParams } from '@/types/wordpress';
 
 export const createInitialFilters = (terms: TaxonomyTerm[], searchParams?: NextSearchParams) => {
 	return terms.reduce((acc, { taxonomy, slug }) => {

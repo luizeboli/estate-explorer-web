@@ -5,7 +5,7 @@ import Spinner from '@/components/Spinner';
 import useSimilarProperties from '@/hooks/useSimilarProperties';
 import breakpoints from '@/styles/breakpoints';
 import colors from '@/styles/colors';
-import { Property } from '@/types';
+import type { Property } from '@/types';
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 

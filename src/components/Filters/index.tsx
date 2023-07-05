@@ -3,11 +3,11 @@
 import { styled } from '@linaria/react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useMemo, useState } from 'react';
-import { AmenityTerm, PropertyStatusTerm } from '@/types/taxonomy';
+import type { AmenityTerm, PropertyStatusTerm } from '@/types/taxonomy';
 import Button from '@/components/Button';
 import { screenMinWidth } from '@/styles/breakpoints';
 import colors from '@/styles/colors';
-import { FilterState } from './types';
+import type { FilterState } from './types';
 import TaxonomyFilter from './TaxonomyFilter';
 import { buildSearchQueryString } from './helpers';
 

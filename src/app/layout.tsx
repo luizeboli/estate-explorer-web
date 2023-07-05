@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google';
 import 'normalize.css/normalize.css';
 import Navbar from '@/components/Navbar';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import AppProviders from '@/components/AppProviders';
 import ProgressBar from '@/components/ProgressBar';
 import 'nprogress/nprogress.css';

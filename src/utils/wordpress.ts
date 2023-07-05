@@ -1,6 +1,9 @@
-import { Property } from '@/types';
-import { PropertyStatusTermSlug, Taxonomies, Taxonomy, TaxonomyTitle } from '@/types/taxonomy';
-import { WordpressPropertyPostType, WordpressPropertyTermsQueryParams } from '@/types/wordpress';
+import type { Property } from '@/types';
+import type { PropertyStatusTermSlug, Taxonomies, Taxonomy, TaxonomyTitle } from '@/types/taxonomy';
+import type {
+	WordpressPropertyPostType,
+	WordpressPropertyTermsQueryParams,
+} from '@/types/wordpress';
 
 type PrepareTermsSlugQueryParams = {
 	[K in TaxonomyTitle]: K extends 'property_status' ? PropertyStatusTermSlug : Taxonomies[K];

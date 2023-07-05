@@ -1,5 +1,5 @@
 import { render, screen } from '@/tests/utils';
-import { Property } from '@/types';
+import type { Property } from '@/types';
 import { textContentMatcher } from '@/tests/textContentMatcher';
 import * as PropertyCard from '.';
 

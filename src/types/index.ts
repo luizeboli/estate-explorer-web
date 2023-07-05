@@ -1,4 +1,4 @@
-import { AmenityTerm, PropertyStatusTerm } from '@/types/taxonomy';
+import type { AmenityTerm, PropertyStatusTerm } from '@/types/taxonomy';
 
 export type Property = {
 	id: number;

@@ -1,5 +1,6 @@
-import { AmenityTermSlug } from '@/types/taxonomy';
-import { Dumbbell, LucideIcon, LucideProps, ParkingSquare, Waves } from 'lucide-react';
+import type { AmenityTermSlug } from '@/types/taxonomy';
+import type { LucideIcon, LucideProps } from 'lucide-react';
+import { Dumbbell, ParkingSquare, Waves } from 'lucide-react';
 
 const amenityIcons: { [key in AmenityTermSlug]: LucideIcon } = {
 	gym: Dumbbell,

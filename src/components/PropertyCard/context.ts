@@ -1,4 +1,4 @@
-import { Property } from '@/types';
+import type { Property } from '@/types';
 import { createContext, useContext } from 'react';
 
 export const PropertyContext = createContext<Property>(undefined as unknown as Property);

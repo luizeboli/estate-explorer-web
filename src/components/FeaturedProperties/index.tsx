@@ -1,7 +1,7 @@
 import * as PropertyCard from '@/components/PropertyCard';
 import breakpoints, { screenMinWidth } from '@/styles/breakpoints';
 import colors from '@/styles/colors';
-import { Property } from '@/types';
+import type { Property } from '@/types';
 import { styled } from '@linaria/react';
 
 const Wrapper = styled.div`
