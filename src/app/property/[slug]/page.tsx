@@ -164,6 +164,7 @@ const PropertyPage = async ({ params }: PropertyPageProps) => {
 
 				<CoverWrapper>
 					<Image
+						priority
 						src={cover ?? HouseCoverPlaceholder}
 						alt={`${title} property`}
 						width={300}
