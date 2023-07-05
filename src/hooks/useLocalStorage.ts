@@ -4,7 +4,7 @@ type StateSetterValue<T> = (state: T) => T | T;
 
 type UseLocalStorageReturn<TInitialState> = [
 	TInitialState,
-	(value: StateSetterValue<TInitialState>) => void,
+	(value: TInitialState | StateSetterValue<TInitialState>) => void,
 ];
 
 const useLocalStorage = <TInitialState = any>(
@@ -25,8 +25,8 @@ const useLocalStorage = <TInitialState = any>(
 	const [state, setState] = useState<TInitialState>(getInitialState);
 
 	const handleStateChange = useCallback(
-		(value: StateSetterValue<TInitialState>) => {
-			const newState = typeof value === 'function' ? value(state) : value;
+		(value: TInitialState | StateSetterValue<TInitialState>) => {
+			const newState = value instanceof Function ? value(state) : value;
 			setState(newState);
 
 			try {
