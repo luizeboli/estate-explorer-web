@@ -10,6 +10,7 @@ const config: Config = {
 	testEnvironment: 'jest-environment-jsdom',
 	restoreMocks: true,
 	setupFilesAfterEnv: ['<rootDir>/src/tests/setup.ts'],
+	watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
 };
 
 export default createJestConfig(config);
