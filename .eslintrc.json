@@ -4,5 +4,8 @@
     "next/core-web-vitals",
     "@10up/eslint-config/react"
   ],
-  "plugins": ["@typescript-eslint"]
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["./src/tests/setup.ts", "**/*.spec.{ts,tsx}"]  }]
+  }
 }
