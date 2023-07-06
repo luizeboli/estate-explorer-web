@@ -22,7 +22,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-const Container = styled.ul`
+const TaxonomyList = styled.ul`
 	display: flex;
 	background-color: #fff;
 	border: 1px solid ${colors.zinc[300]};
@@ -99,7 +99,7 @@ const Filters = ({ amenities, propertyStatus, initialFilters }: FiltersProps) =>
 				Clear Filters
 			</Button>
 
-			<Container>
+			<TaxonomyList data-testid="filters-list">
 				<TaxonomyFilter
 					title="Status"
 					terms={propertyStatus}
@@ -112,7 +112,7 @@ const Filters = ({ amenities, propertyStatus, initialFilters }: FiltersProps) =>
 					values={filters.amenities}
 					onChange={updateFilters('amenities')}
 				/>
-			</Container>
+			</TaxonomyList>
 		</Wrapper>
 	);
 };

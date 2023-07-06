@@ -71,7 +71,7 @@ const SearchPage = async ({ searchParams }: { searchParams?: NextSearchParams })
 					/>
 
 					{!!properties.length && (
-						<List>
+						<List data-testid="properties-list">
 							{properties.map((property) => (
 								<PropertyCard.Root key={property.id} property={property}>
 									<PropertyCard.Cover />
