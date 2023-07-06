@@ -61,7 +61,7 @@ const SimilarProperties = ({ baseProperty }: SimilarPropertiesProps) => {
 					{(isLoading || isValidating) && <Spinner className={spinner} size={24} />}
 				</TitleWrapper>
 
-				<List>
+				<List data-testid="similar-properties-list">
 					{properties?.map((property) => (
 						<li key={property.id}>
 							<PropertyCard.Root property={property}>

@@ -3,7 +3,9 @@ describe('Home Page', () => {
 		cy.visit('/');
 
 		cy.getProperties({ per_page: 10 }).then(({ body }) => {
-			body.forEach((property) => cy.shouldRenderPropertyCard(property));
+			body.forEach((property) =>
+				cy.findByTestId(`property-${property.id}`).shouldRenderProperty(property),
+			);
 		});
 	});
 

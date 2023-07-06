@@ -14,25 +14,27 @@ Cypress.Commands.add('getTaxonomyTerms', (taxonomy: string) => {
 	});
 });
 
-Cypress.Commands.add('shouldRenderPropertyCard', (property, option = {}) => {
-	const { checkStatus = true } = option;
+Cypress.Commands.add(
+	'shouldRenderProperty',
+	{ prevSubject: 'element' },
+	(subject, property, options = {}) => {
+		cy.wrap(subject).within(() => {
+			const { checkStatus = true } = options;
 
-	cy.findByTestId(`property-${property.id}`).within(() => {
-		cy.findByText(property.title.rendered);
-		cy.findByText(property.meta.location);
+			cy.findByText(property.title.rendered);
+			cy.findByText(property.meta.location);
 
-		const price = new Intl.NumberFormat('en-US', {
-			style: 'currency',
-			currency: 'USD',
-		}).format(Number(property.meta.price));
+			const price = new Intl.NumberFormat('en-US', {
+				style: 'currency',
+				currency: 'USD',
+			}).format(Number(property.meta.price));
 
-		cy.findByText(price);
+			cy.findByText(price);
 
-		property._embedded['wp:term']
-			.flatMap((term) => term)
-			.forEach((term) => {
+			property._embedded['wp:term'].flat().forEach((term) => {
 				if (term.taxonomy === 'property_status' && !checkStatus) return;
 				cy.findByText(term.name);
 			});
-	});
-});
+		});
+	},
+);

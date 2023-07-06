@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 import type { WordpressPropertyPostType } from '../../src/types/wordpress';
-import type { TaxonomyTerm } from '../../src/types/taxonomy';
+import type { TaxonomyTitleSlug, TaxonomyTerm } from '../../src/types/taxonomy';
 
 declare global {
 	namespace Cypress {
@@ -13,7 +13,8 @@ declare global {
 				options?: Partial<{
 					per_page: number;
 					pathname: string;
-				}>,
+				}> &
+					Partial<{ [K in TaxonomyTitleSlug]: string }>,
 			) => Chainable<Response<WordpressPropertyPostType[]>>;
 
 			/**
@@ -24,7 +25,7 @@ declare global {
 			/**
 			 * Check if a property card is rendered correctly
 			 */
-			shouldRenderPropertyCard: (
+			shouldRenderProperty: (
 				property: WordpressPropertyPostType,
 				options?: Partial<{ checkStatus: boolean }>,
 			) => void;

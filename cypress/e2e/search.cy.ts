@@ -37,7 +37,9 @@ describe('Search Page', () => {
 		}).then(({ body }) => {
 			cy.findByTestId('properties-list').children().should('have.length', body.length);
 			body.forEach((property) =>
-				cy.shouldRenderPropertyCard(property, { checkStatus: false }),
+				cy
+					.findByTestId(`property-${property.id}`)
+					.shouldRenderProperty(property, { checkStatus: false }),
 			);
 		});
 	});

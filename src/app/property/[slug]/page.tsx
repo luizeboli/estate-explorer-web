@@ -150,7 +150,7 @@ const PropertyPage = async ({ params }: PropertyPageProps) => {
 
 	return (
 		<Wrapper>
-			<Container>
+			<Container data-testid="property-data">
 				<Header>
 					<Title>{title}</Title>
 					<PropertyStatusTitle>{property_status.name}</PropertyStatusTitle>
