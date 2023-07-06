@@ -99,6 +99,9 @@ const Button = <C extends React.ElementType>({
 			color={color}
 			variant={variant}
 			className={cx(className, colorStyles, variant)}
+			aria-label={
+				buttonProps['aria-label'] || typeof children === 'string' ? children : undefined
+			}
 		>
 			{!!startIcon && startIcon}
 			{children}

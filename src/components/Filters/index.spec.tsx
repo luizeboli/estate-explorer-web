@@ -150,4 +150,20 @@ describe('<Filters/>', () => {
 			'/?amenities=gym&property_status=for-rent,for-sale',
 		);
 	});
+
+	it('should clear filters when clicking clear button', async () => {
+		// Arrange
+		const mockedPush = jest.fn();
+		jest.spyOn(router, 'useRouter').mockReturnValue({
+			push: mockedPush,
+		} as any);
+
+		render(<Filters {...props} />);
+		// Act
+		await userEvent.click(screen.getByLabelText('Fake Amenity'));
+		await userEvent.click(screen.getByLabelText('Clear Filters'));
+
+		// Assert
+		expect(mockedPush).toHaveBeenLastCalledWith('/');
+	});
 });
