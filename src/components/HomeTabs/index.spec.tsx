@@ -59,12 +59,12 @@ describe('<HomeTabs />', () => {
 		).not.toBeInTheDocument();
 	});
 
-	it('should render link to the search page', () => {
+	it('should render link to the search page', async () => {
 		// Arrange
 		render(<HomeTabs />);
 
 		// Assert
-		expect(screen.getByRole('link', { name: 'See properties' })).toHaveAttribute(
+		expect(await screen.findByRole('link', { name: 'See properties' })).toHaveAttribute(
 			'href',
 			'/search',
 		);
