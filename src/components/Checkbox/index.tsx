@@ -30,10 +30,12 @@ const Marker = styled.div`
 `;
 
 const Input = styled.input`
+	cursor: pointer;
 	position: absolute;
 	opacity: 0;
-	width: 0;
-	height: 0;
+	width: 2rem;
+	height: 2rem;
+	z-index: 1;
 
 	&:focus + ${Marker} {
 		outline: 1px solid ${colors.purple[500]};
