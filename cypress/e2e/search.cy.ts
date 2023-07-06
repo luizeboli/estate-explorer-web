@@ -43,4 +43,18 @@ describe('Search Page', () => {
 			);
 		});
 	});
+
+	it('should render the properties according to the filters', () => {
+		cy.visit('/search');
+		cy.findByTestId('filters-list').findByLabelText('For Sale').click();
+
+		cy.getProperties({ property_status_slug: 'for-sale' }).then(({ body }) => {
+			cy.findByTestId('properties-list').children().should('have.length', body.length);
+			body.forEach((property) =>
+				cy
+					.findByTestId(`property-${property.id}`)
+					.shouldRenderProperty(property, { checkStatus: false }),
+			);
+		});
+	});
 });
