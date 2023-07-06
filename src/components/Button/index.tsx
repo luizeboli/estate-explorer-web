@@ -86,6 +86,7 @@ const Button = <C extends React.ElementType>({
 	color = 'primary',
 	startIcon = null,
 	endIcon = null,
+	className,
 	...buttonProps
 }: ButtonProps<C>) => {
 	const colorStyles = colors[color];
@@ -97,7 +98,7 @@ const Button = <C extends React.ElementType>({
 			{...buttonProps}
 			color={color}
 			variant={variant}
-			className={cx(colorStyles, variant)}
+			className={cx(className, colorStyles, variant)}
 		>
 			{!!startIcon && startIcon}
 			{children}

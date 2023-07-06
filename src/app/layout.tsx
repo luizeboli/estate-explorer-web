@@ -19,7 +19,11 @@ export const metadata: Metadata = {
 
 const inter = Inter({ subsets: ['latin'] });
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+type RootLayoutProps = {
+	children: React.ReactNode;
+};
+
+const RootLayout = ({ children }: RootLayoutProps) => {
 	return (
 		<html lang="en" className={inter.className}>
 			<body

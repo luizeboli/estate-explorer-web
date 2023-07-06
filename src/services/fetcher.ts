@@ -37,7 +37,7 @@ export const fetcher = async <TData>(
 	const data = await response.json();
 
 	if (response.status >= 400) {
-		throw data;
+		throw JSON.stringify(data);
 	}
 
 	return data;

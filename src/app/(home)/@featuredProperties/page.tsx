@@ -1,12 +1,14 @@
 import * as PropertyCard from '@/components/PropertyCard';
+import { getProperties } from '@/services/api';
 import breakpoints, { screenMinWidth } from '@/styles/breakpoints';
 import colors from '@/styles/colors';
-import type { Property } from '@/types';
 import { styled } from '@linaria/react';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
+	margin: 0 auto;
+	padding: 6.2rem 1.2rem 0;
 
 	${screenMinWidth('sm')} {
 		max-width: 32rem;
@@ -15,6 +17,7 @@ const Wrapper = styled.div`
 	}
 
 	${screenMinWidth('md')} {
+		padding: 6.2rem 3.2rem 0;
 		max-width: ${breakpoints.lg}px;
 	}
 `;
@@ -40,11 +43,11 @@ const List = styled.ul`
 	gap: 3.2rem;
 `;
 
-type FeaturePropertiesProps = {
-	properties: Property[];
-};
+const FeaturedPropertiesSection = async () => {
+	const properties = await getProperties({ params: { per_page: 10 } });
 
-const FeaturedProperties = ({ properties }: FeaturePropertiesProps) => {
+	if (!properties.length) return null;
+
 	return (
 		<Wrapper>
 			<Title>Featured Properties</Title>
@@ -65,4 +68,4 @@ const FeaturedProperties = ({ properties }: FeaturePropertiesProps) => {
 	);
 };
 
-export default FeaturedProperties;
+export default FeaturedPropertiesSection;
