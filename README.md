@@ -1,6 +1,6 @@
 # Estate Explorer
 
-Welcome to the frontend of the Estate Explorer app. This is a proof of concept for building an application using Wordpress as a headless CMS. You can check the backend [here](https://github.com/luizeboli/headless-wordpress) and the live version [here](https://estate-explorer.felicio.dev).
+Welcome to the frontend of the Estate Explorer app. This is a proof of concept for building an application using Wordpress as a headless CMS. You can check the backend [here](https://github.com/luizeboli/estate-explorer-wp) and the live version [here](https://estate-explorer.felicio.dev).
 
 ## Technologies
 
