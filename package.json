@@ -12,8 +12,9 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "prestart:e2e": "npm run build",
-    "start:e2e": "start-server-and-test start http://localhost:3000 'cypress open'"
+    "pree2e:ci": "npm run build",
+    "e2e:ci": "start-server-and-test start http://localhost:3000 'cypress run --e2e'",
+    "test:e2e": "start-server-and-test dev http://localhost:3000 'cypress open'"
   },
   "dependencies": {
     "@linaria/babel-preset": "^4.4.5",

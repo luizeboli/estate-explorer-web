@@ -49,7 +49,7 @@ const FeaturedProperties = ({ properties }: FeaturePropertiesProps) => {
 		<Wrapper>
 			<Title>Featured Properties</Title>
 
-			<List>
+			<List data-testid="properties-list">
 				{properties.map((property) => (
 					<li key={property.id}>
 						<PropertyCard.Root property={property}>

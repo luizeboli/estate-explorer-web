@@ -22,7 +22,7 @@ type PropertyCardProps = React.PropsWithChildren<{
 const Root = ({ property, children }: PropertyCardProps) => {
 	return (
 		<PropertyContext.Provider value={property}>
-			<Wrapper>{children}</Wrapper>
+			<Wrapper data-testid={`property-${property.id}`}>{children}</Wrapper>
 		</PropertyContext.Provider>
 	);
 };
