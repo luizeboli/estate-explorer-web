@@ -12,7 +12,7 @@ This library is the one which supports NextJs 13 (app folder) and Linaria v4, bu
 
 I could've used [Tailwind](https://github.com/tailwindlabs/tailwindcss) as it's [recommended by NextJs team](https://nextjs.org/docs/pages/building-your-application/styling/tailwind-css) and pretty easy to work with, but I wanted to experiment with Linaria as it's similar to a solution that I'm used to: [styled components](https://github.com/styled-components/styled-components), with the advantage of being zero runtime (no transpilation involved).
 
-For testing I chose a well-known robust and stable setup: [Cypress](https://cypress.io) (E2E), [Jest](htts://jestjs.io) + [RTL](https://testing-library.com) (Unit/Integration). As this is a PoC I decided to write tests for the main features, not focusing on a lot of tests with high coverage.
+For testing I chose a well-known robust and stable setup: [Cypress](https://cypress.io) (E2E), [Jest](https://jestjs.io) + [RTL](https://testing-library.com) (Unit/Integration). As this is a PoC I decided to write tests for the main features, not focusing on a lot of tests with high coverage.
 
 ## Getting Started
 
