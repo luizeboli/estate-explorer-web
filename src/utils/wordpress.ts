@@ -45,12 +45,12 @@ export const normalizeWordpressProperties = (properties: WordpressPropertyPostTy
 		return {
 			id,
 			slug,
-			cover: _embedded['wp:featuredmedia']?.[0].source_url ?? null,
+			cover: _embedded?.['wp:featuredmedia']?.[0].source_url ?? null,
 			title: title.rendered,
 			description,
 			location,
 			price: formatCurrency(price),
-			property_status: property_status[0],
+			property_status: property_status?.[0],
 			...taxonomies,
 		};
 	});
