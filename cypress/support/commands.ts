@@ -14,7 +14,7 @@ Cypress.Commands.add('getTaxonomyTerms', (taxonomy: string) => {
 	});
 });
 
-Cypress.Commands.add('shouldRenderProperty', (property, option = {}) => {
+Cypress.Commands.add('shouldRenderPropertyCard', (property, option = {}) => {
 	const { checkStatus = true } = option;
 
 	cy.findByTestId(`property-${property.id}`).within(() => {

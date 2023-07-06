@@ -22,9 +22,9 @@ declare global {
 			getTaxonomyTerms: (taxonomy: string) => Chainable<Response<TaxonomyTerm[]>>;
 
 			/**
-			 * Check if a property is rendered correctly
+			 * Check if a property card is rendered correctly
 			 */
-			shouldRenderProperty: (
+			shouldRenderPropertyCard: (
 				property: WordpressPropertyPostType,
 				options?: Partial<{ checkStatus: boolean }>,
 			) => void;

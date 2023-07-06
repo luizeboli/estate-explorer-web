@@ -36,7 +36,9 @@ describe('Search Page', () => {
 			pathname: '?amenities_slug=pool,gym&property_status_slug=for-sale',
 		}).then(({ body }) => {
 			cy.findByTestId('properties-list').children().should('have.length', body.length);
-			body.forEach((property) => cy.shouldRenderProperty(property, { checkStatus: false }));
+			body.forEach((property) =>
+				cy.shouldRenderPropertyCard(property, { checkStatus: false }),
+			);
 		});
 	});
 });
