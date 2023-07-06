@@ -7,6 +7,8 @@ import ProgressBar from '@/components/ProgressBar';
 import 'nprogress/nprogress.css';
 import '@/styles/styles.linaria.global';
 import { Suspense } from 'react';
+import colors from '@/styles/colors';
+import { css } from '@linaria/core';
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://estate-explorer.felicio.dev'),
@@ -20,7 +22,18 @@ const inter = Inter({ subsets: ['latin'] });
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html lang="en" className={inter.className}>
-			<body>
+			<body
+				className={css`
+					#nprogress {
+						pointer-events: none;
+					}
+
+					#nprogress .bar {
+						background: ${colors.purple[500]};
+						height: 4px;
+					}
+				`}
+			>
 				<AppProviders>
 					<Suspense fallback={null}>
 						<ProgressBar />

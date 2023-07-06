@@ -55,14 +55,5 @@ export const globals = css`
 			padding: 0;
 			margin: 0;
 		}
-
-		#nprogress {
-			pointer-events: none;
-		}
-
-		#nprogress .bar {
-			background: ${colors.purple[500]};
-			height: 4px;
-		}
 	}
 `;
