@@ -41,4 +41,13 @@ describe('useLocalStorage', () => {
 		// Assert
 		expect(result.current[0]).toStrictEqual({ default: 'value', other: 'saved' });
 	});
+
+	it('should return the initial state if cannot parse local storage', () => {
+		// Arrange
+		localStorage.setItem('test', 'invalid json');
+		const { result } = renderHook(() => useLocalStorage('test', { default: 'value' }));
+
+		// Assert
+		expect(result.current[0]).toStrictEqual({ default: 'value' });
+	});
 });
