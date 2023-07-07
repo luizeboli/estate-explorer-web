@@ -25,7 +25,9 @@ const Wrapper = styled.div`
 		border-bottom-color: transparent;
 		border-bottom-width: 1.2rem;
 		border-top-width: 0rem;
+		border-top-color: transparent;
 		border-right-width: 2rem;
+		border-right-color: transparent;
 
 		${screenMinWidth('sm')} {
 			border-right-color: ${colors.purple[700]};
