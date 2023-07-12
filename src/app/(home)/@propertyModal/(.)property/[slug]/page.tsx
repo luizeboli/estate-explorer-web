@@ -67,7 +67,7 @@ const Actions = styled.div`
 `;
 
 const InterceptedPropertyPage = () => {
-	const { slug } = useParams();
+	const { slug } = useParams() as { slug: string };
 	const { data, isLoading } = useProperties({ params: { slug } });
 	const router = useRouter();
 
