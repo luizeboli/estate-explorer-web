@@ -16,7 +16,7 @@ const PropertyCover = () => {
 	const { title, cover, slug } = usePropertyContext();
 
 	return (
-		<Link href={`/property/${slug}`} className={imageWrapper}>
+		<Link href={`/property/${slug}`} className={imageWrapper} scroll={false}>
 			<Image
 				src={cover ?? HouseCoverPlaceholder}
 				alt={title}
