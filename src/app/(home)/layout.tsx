@@ -16,10 +16,9 @@ export const ContentWrapper = styled.div`
 type HomeLayoutProps = {
 	children: React.ReactNode;
 	featuredProperties: React.ReactNode;
-	propertyModal: React.ReactNode;
 };
 
-const HomeLayout = ({ children, featuredProperties, propertyModal }: HomeLayoutProps) => {
+const HomeLayout = ({ children, featuredProperties }: HomeLayoutProps) => {
 	return (
 		<>
 			<HomeHero />
@@ -28,8 +27,6 @@ const HomeLayout = ({ children, featuredProperties, propertyModal }: HomeLayoutP
 				{children}
 				{featuredProperties}
 			</ContentWrapper>
-
-			{propertyModal}
 		</>
 	);
 };
