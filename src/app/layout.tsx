@@ -9,6 +9,7 @@ import '@/styles/styles.linaria.global';
 import { Suspense } from 'react';
 import colors from '@/styles/colors';
 import { css } from '@linaria/core';
+import EducationalBanner from '@/components/EducationalBanner';
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://estate-explorer.felicio.dev'),
@@ -39,6 +40,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
 				`}
 			>
 				<AppProviders>
+					<EducationalBanner />
 					<Suspense fallback={null}>
 						<ProgressBar />
 					</Suspense>
