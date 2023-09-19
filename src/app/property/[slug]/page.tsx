@@ -11,9 +11,6 @@ import breakpoints, { screenMinWidth } from '@/styles/breakpoints';
 import ShareButton from '@/components/ShareButton';
 import colors from '@/styles/colors';
 import type { Metadata } from 'next';
-import { wordPressProperties } from '@/mocks/properties';
-import { normalizeWordpressProperties } from '@/utils/wordpress';
-import type { WordpressPropertyPostType } from '@/types/wordpress';
 
 const Wrapper = styled.div`
 	padding: 5.4rem 5vw 0;
@@ -222,9 +219,7 @@ const PropertyPage = async ({ params }: PropertyPageProps) => {
 export default PropertyPage;
 
 export const generateStaticParams = async () => {
-	const properties = normalizeWordpressProperties(
-		wordPressProperties as WordpressPropertyPostType[],
-	);
+	const properties = await getProperties({ params: { per_page: 50 } });
 
 	return properties.map(({ slug }) => ({ slug }));
 };
